@@ -45,7 +45,7 @@
             <RadioButton
                 android:id="@id/radio_button3"
                 android:layout_marginTop="2.0dip"
-                android:text="@string/main_friends"
+                android:text="@string/main_me"
                 android:drawableTop="@drawable/dilan_geren" style="@style/main_tab_bottom" />
 
         </RadioGroup>
