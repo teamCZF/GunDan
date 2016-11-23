@@ -11,11 +11,8 @@ import com.litesuits.orm.db.enums.AssignType;
 public class PetData{
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int petID;
-
     @Column("petName")
     private String petName;
-    @Column("petStar")//宠物星级
-    private int petStar;
     @Column("petLevel")//等级
     private int petLevel;
     @Column("healthPoint")
@@ -26,8 +23,6 @@ public class PetData{
     private long exp;
     @Column("petImageID")
     private int petImageID;
-    @Column("petDes")
-    private String petDes;
 
     public int getPetID(){return  petID;}
 
@@ -36,10 +31,6 @@ public class PetData{
     public  String getPetName(){return petName;}
 
     public  void setPetName(String name){this.petName=name;}
-
-    public  int getPetStar(){return petStar;}
-
-    public  void setPetStar(int star){this.petStar=star;}
 
     public int getPetLevel(){return petLevel;}
 
@@ -61,8 +52,6 @@ public class PetData{
 
     public void setPetImageID(int imageID){this.petImageID=imageID;}
 
-    public String getPetDes(){return petDes;}
-
-    public void setPetDes(String des){this.petDes=des;}
+    public void petInit(){}
 
 }
