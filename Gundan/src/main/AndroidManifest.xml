@@ -70,6 +70,13 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
+        <service
+            android:name="com.service.EggService">
+        </service>
+        <receiver
+            android:name="com.service.AlarmReceiver">
+        </receiver>
+
     </application>
 
 </manifest>

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.base.basepedo.R;
 import com.config.Constant;
+import com.service.EggService;
 import com.service.StepService;
 
 public class MainActivity extends Activity implements Handler.Callback {
@@ -24,7 +25,6 @@ public class MainActivity extends Activity implements Handler.Callback {
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private Handler delayHandler;
-
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -71,6 +71,7 @@ public class MainActivity extends Activity implements Handler.Callback {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
+
     }
     private void init() {
         text_step = (TextView) findViewById(R.id.text_step);
@@ -80,12 +81,16 @@ public class MainActivity extends Activity implements Handler.Callback {
     @Override
     protected void onStart() {
         super.onStart();
-        setupService();
+        setupStepService();
     }
 
-    private void setupService() {
+    private void setupStepService() {
         Intent intent = new Intent(this, StepService.class);
         bindService(intent, conn, Context.BIND_AUTO_CREATE);
+        startService(intent);
+    }
+    private void setupEggService(){
+        Intent intent= new Intent(this, EggService.class);
         startService(intent);
     }
 
