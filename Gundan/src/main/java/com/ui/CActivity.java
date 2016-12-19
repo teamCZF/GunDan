@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.Data.Friend;
 import com.base.basepedo.R;
@@ -32,15 +33,22 @@ public class CActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Friend friend=friendList.get(i);
+                Toast.makeText(CActivity.this,friend.getName(),Toast.LENGTH_SHORT).show();
             }
         });
     }
     private void initFriends(){
-        Friend f1=new Friend("欣欣",R.drawable.dilan_haoyou,"56123");
+        Friend f1=new Friend("小欣欣",R.mipmap.head6,"56123");
         friendList.add(f1);
-        Friend f2=new Friend("虹虹",R.drawable.dilan_haoyou,"40000");
+        Friend f2=new Friend("小虹虹",R.mipmap.head4,"40000");
         friendList.add(f2);
-        Friend f3=new Friend("T  T",R.drawable.dilan_haoyou,"39871");
+        Friend f3=new Friend("小媛媛",R.mipmap.head3,"40000");
         friendList.add(f3);
+        Friend f4=new Friend("奈司",R.mipmap.head1,"39871");
+        friendList.add(f4);
+        Friend f5=new Friend("宇宙第一",R.mipmap.head5,"32000");
+        friendList.add(f5);
+        Friend f6=new Friend("老司机",R.mipmap.head5,"30000");
+        friendList.add(f6);
     }
 }
