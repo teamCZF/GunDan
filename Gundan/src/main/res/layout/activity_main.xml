@@ -132,19 +132,19 @@
     </LinearLayout>
 
 
-    <ImageView
+    <Button
         android:id="@+id/fork_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_centerInParent="true"
         android:layout_alignParentLeft="true"
-        android:src="@mipmap/fork"/>
-    <ImageView
+        android:background="@mipmap/fork"/>
+    <Button
         android:id="@+id/clothes_button"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_below="@id/fork_button"
-        android:src="@mipmap/cloths"/>
+        android:background="@mipmap/cloths"/>
 
     <ImageView
         android:layout_width="250dp"
