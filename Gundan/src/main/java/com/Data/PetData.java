@@ -9,7 +9,7 @@ import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.enums.AssignType;
 @Table("pet")
 public class PetData{
-    @PrimaryKey(AssignType.AUTO_INCREMENT)
+    @PrimaryKey(AssignType.BY_MYSELF)
     private int petID;
     @Column("petName")
     private String petName;
@@ -52,6 +52,12 @@ public class PetData{
 
     public void setPetImageID(int imageID){this.petImageID=imageID;}
 
-    public void petInit(){}
-
+    public void petInit(){
+        this.petName="滚滚";
+        this.petLevel=0;
+        this.exp=0;
+        this.healthPoint=100;
+        this.moodPoint=100;
+    }
 }
+

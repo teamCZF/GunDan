@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/personal_top"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="169dp"
+            android:layout_height="70dp"
+            android:id="@+id/my_name"
+            android:text="奈司"
+            android:textSize="25sp"
+            android:gravity="center"
+            android:layout_below="@+id/my_photo"
+            android:layout_alignRight="@+id/my_photo"
+            android:layout_alignEnd="@+id/my_photo" />
+
+        <ImageView
+            android:id="@+id/my_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/head"
+            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/white"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@drawable/corners_bg1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="52dp"
+            android:id="@+id/button_myInfo"
+            android:text="个人信息"
+            android:textSize="@dimen/title_text_size"
+             />
+
+        <Button
+            android:id="@+id/button_myHonor"
+            android:layout_width="120dp"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:background="@drawable/corners_bg1"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:text="我的成就"
+            android:textSize="@dimen/title_text_size"
+            android:layout_marginTop="52dp"
+            />
+    </LinearLayout>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/white"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/button_myCollection"
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_bg1"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:text="我的图鉴"
+                android:textSize="@dimen/title_text_size"/>
+
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="70dp"
+                android:layout_weight="1"
+                android:background="@drawable/corners_bg1"
+                android:id="@+id/button_historyStep"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:text="历史步数"
+                android:textSize="@dimen/title_text_size"/>
+    </LinearLayout>
+</LinearLayout>

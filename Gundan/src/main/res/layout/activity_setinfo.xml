@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0F3F6"
+    >
+    <!-- 全圆角-->
+    <LinearLayout style="@style/wrap_layout"
+        android:layout_height="92dp">
+        <LinearLayout style="@style/single_layout">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@mipmap/head3"
+
+                />
+            <TextView style="@style/usertext"
+                android:text="修改头像"
+                android:gravity="center"/>
+            <ImageView
+                style="@style/img_arrow"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/wrap_layout" >
+        <!-- 上圆角-->
+        <LinearLayout style="@style/top_layout">
+            <TextView style="@style/usertext" android:text="昵称" />
+            <TextView
+                android:id="@+id/text_my_name"
+                style="@style/usertext"
+                android:text="奈司"
+                android:gravity="center"
+                />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+        <!-- 分割线 -->
+        <View style="@style/bg_line"/>
+        <!-- 无圆角-->
+        <LinearLayout style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:text="性别" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/text_my_sex"
+                android:text="女"
+                android:gravity="center"
+                 />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:text="年龄" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/text_my_age"
+                android:text="18"
+                android:gravity="center"
+                />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/mid_layout">
+            <TextView style="@style/usertext"
+                android:text="身高" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/text_my_height"
+                android:text="165cm"
+                android:gravity="center"
+                />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+        <View style="@style/bg_line"/>
+
+        <LinearLayout style="@style/bottom_layout">
+            <TextView style="@style/usertext"
+                android:text="体重" />
+            <TextView
+                style="@style/usertext"
+                android:id="@+id/text_my_weight"
+                android:text="50kg"
+                android:gravity="center"
+                />
+            <ImageView style="@style/img_arrow"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+
