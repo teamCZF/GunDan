@@ -84,7 +84,7 @@ public class MainActivity extends Activity implements Handler.Callback{
     @Override
     protected void onStart() {
         super.onStart();
-        setupStepService();
+        //setupStepService();
         Intent i=new Intent(MainActivity.this,MainTabActivity.class);
         startActivity(i);
     }
@@ -102,6 +102,7 @@ public class MainActivity extends Activity implements Handler.Callback{
     @Override
     protected void onResume() {
         super.onResume();
+        setupStepService();
     }
 
     @Override
