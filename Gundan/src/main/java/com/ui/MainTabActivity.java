@@ -33,8 +33,8 @@ public class MainTabActivity extends TabActivity implements OnCheckedChangeListe
 
         this.mAIntent = new Intent(this,MainActivity.class);
         this.mBIntent = new Intent(this,BActivity.class);
-        this.mCIntent = new Intent(this,CActivity.class);
-        this.mDIntent = new Intent(this,DActivity.class);
+        this.mCIntent = new Intent(this,RankActivity.class);
+        this.mDIntent = new Intent(this,UserActivity.class);
 
         ((RadioButton) findViewById(R.id.radio_button0))
                 .setOnCheckedChangeListener(this);

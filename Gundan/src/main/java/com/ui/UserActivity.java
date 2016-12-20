@@ -12,11 +12,15 @@ import com.base.basepedo.R;
  * Created by Administrator on 2016/11/22 0022.
  */
 
-public class DActivity extends Activity {
+public class UserActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.acticity_me);
+        setContentView(R.layout.acticity_user);
+        init();
+
+    }
+    private void init() {
         Button SetInfo = (Button) findViewById(R.id.button_myInfo);
         Button historyStep = (Button) findViewById(R.id.button_historyStep);
         Button myHonor = (Button) findViewById(R.id.button_myHonor);
@@ -24,7 +28,7 @@ public class DActivity extends Activity {
         SetInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DActivity.this, SetInfoActivity.class);
+                Intent intent = new Intent(UserActivity.this, SetInfoActivity.class);
                 startActivity(intent);
             }
         });
@@ -46,6 +50,5 @@ public class DActivity extends Activity {
 
             }
         });
-
     }
 }

@@ -4,13 +4,9 @@ package com.Data;
  * Created by Administrator on 2016/11/19 0019.
  */
 import com.litesuits.orm.db.annotation.Column;
-import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
-import com.litesuits.orm.db.enums.AssignType;
 @Table("pet")
 public class PetData{
-    @PrimaryKey(AssignType.BY_MYSELF)
-    private int petID;
     @Column("petName")
     private String petName;
     @Column("petLevel")//等级
@@ -24,9 +20,6 @@ public class PetData{
     @Column("petImageID")
     private int petImageID;
 
-    public int getPetID(){return  petID;}
-
-    public void setPetID(int id){this.petID=id;}
 
     public  String getPetName(){return petName;}
 
@@ -52,7 +45,7 @@ public class PetData{
 
     public void setPetImageID(int imageID){this.petImageID=imageID;}
 
-    public void petInit(){
+    public void PetData(){
         this.petName="滚滚";
         this.petLevel=0;
         this.exp=0;

@@ -18,13 +18,15 @@ import com.config.Constant;
 import com.service.EggService;
 import com.service.StepService;
 
-public class MainActivity extends Activity implements Handler.Callback {
+public class MainActivity extends Activity implements Handler.Callback{
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
     private TextView text_step;
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private Handler delayHandler;
+    //
+
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -76,12 +78,15 @@ public class MainActivity extends Activity implements Handler.Callback {
     private void init() {
         text_step = (TextView) findViewById(R.id.text_step);
         delayHandler = new Handler(this);
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         setupStepService();
+        Intent i=new Intent(MainActivity.this,MainTabActivity.class);
+        startActivity(i);
     }
 
     private void setupStepService() {
@@ -110,4 +115,5 @@ public class MainActivity extends Activity implements Handler.Callback {
         super.onDestroy();
         unbindService(conn);
     }
+
 }
