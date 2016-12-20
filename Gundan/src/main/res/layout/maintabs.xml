@@ -30,7 +30,7 @@
             android:layout_height="60dp">
             <RadioButton
                 android:id="@id/radio_button0"
-
+                android:layout_marginTop="2.0dip"
                 android:background="@drawable/white"
                 android:drawableTop="@drawable/dilan_home" style="@style/main_tab_bottom" />
             <RadioButton

@@ -32,7 +32,7 @@ public class MainTabActivity extends TabActivity implements OnCheckedChangeListe
         setContentView(R.layout.maintabs);
 
         this.mAIntent = new Intent(this,MainActivity.class);
-        this.mBIntent = new Intent(this,BActivity.class);
+        this.mBIntent = new Intent(this,StoreActivity.class);
         this.mCIntent = new Intent(this,CActivity.class);
         this.mDIntent = new Intent(this,DActivity.class);
 
