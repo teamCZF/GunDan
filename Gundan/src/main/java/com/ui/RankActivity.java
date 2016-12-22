@@ -51,38 +51,4 @@ public class RankActivity extends Activity {
         Friend f6=new Friend("老司机",R.mipmap.head5,"30000");
         friendList.add(f6);
     }
-   /* private void init() {
-        Button storeButton=(Button)findViewById(R.id.store_button);
-        Button rankButton=(Button)findViewById(R.id.rank_button);
-        Button meButton=(Button)findViewById(R.id.me_button);
-        Button homeButton=(Button)findViewById(R.id.home_button);
-        storeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mStoreIntent=new Intent(RankActivity.this,BActivity.class);
-                startActivity(mStoreIntent);
-            }
-        });
-        rankButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mRankIntent=new Intent(RankActivity.this,RankActivity.class);
-                startActivity(mRankIntent);
-            }
-        });
-        meButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mSelfIntent=new Intent(RankActivity.this,UserActivity.class);
-                startActivity(mSelfIntent);
-            }
-        });
-        homeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent mHomeIntent=new Intent(RankActivity.this,MainActivity.class);
-                startActivity(mHomeIntent);
-            }
-        });
-    }*/
 }

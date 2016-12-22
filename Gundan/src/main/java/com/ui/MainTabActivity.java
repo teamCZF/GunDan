@@ -31,10 +31,10 @@ public class MainTabActivity extends TabActivity implements OnCheckedChangeListe
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.maintabs);
 
-        this.mAIntent = new Intent(this,MainActivity.class);
-        this.mBIntent = new Intent(this,BActivity.class);
-        this.mCIntent = new Intent(this,RankActivity.class);
-        this.mDIntent = new Intent(this,UserActivity.class);
+        this.mAIntent = new Intent(this,MainActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.mBIntent = new Intent(this,StoreActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.mCIntent = new Intent(this,RankActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        this.mDIntent = new Intent(this,UserActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         ((RadioButton) findViewById(R.id.radio_button0))
                 .setOnCheckedChangeListener(this);
@@ -48,12 +48,15 @@ public class MainTabActivity extends TabActivity implements OnCheckedChangeListe
         setupIntent();
     }
 
+
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(isChecked){
             switch (buttonView.getId()) {
                 case R.id.radio_button0:
                     this.mTabHost.setCurrentTabByTag("Main_TAB");
+
                     break;
                 case R.id.radio_button1:
                     this.mTabHost.setCurrentTabByTag("B_TAB");

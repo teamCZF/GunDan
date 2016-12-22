@@ -24,26 +24,29 @@
             </intent-filter>
         </activity>
         <activity android:name="com.ui.MainActivity"
-            >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.ALL_APPS" />
 
                 <category android:name="android.intent.category.ALTERNATIVE" />
             </intent-filter>
         </activity>
-        <activity android:name="com.ui.StoreActivity">
+        <activity android:name="com.ui.StoreActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.ALL_APPS"/>
                 <category android:name="android.intent.category.ALTERNATIVE"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ui.RankActivity">
+        <activity android:name="com.ui.RankActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.ALL_APPS"/>
                 <category android:name="android.intent.category.ALTERNATIVE"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.ui.UserActivity">
+        <activity android:name="com.ui.UserActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.ALL_APPS"/>
                 <category android:name="android.intent.category.ALTERNATIVE"/>
