@@ -13,7 +13,7 @@
 
     <LinearLayout
         android:id="@+id/step_part"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:gravity="center"
@@ -58,9 +58,10 @@
 
     <LinearLayout
         android:id="@+id/pet_basic"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:layout_alignParentLeft="true">
         <TextView
             android:id="@+id/pet_name"
             android:layout_width="120dp"
@@ -83,7 +84,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/hp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/pet_basic">
         <TextView
@@ -101,7 +102,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/mp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hp_progress">
         <TextView
@@ -119,7 +120,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/exp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/mp_progress">
         <TextView
