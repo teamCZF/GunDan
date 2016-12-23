@@ -133,19 +133,6 @@
     </LinearLayout>
 
 
-    <Button
-        android:id="@+id/fork_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:layout_alignParentLeft="true"
-        android:background="@mipmap/fork"/>
-    <Button
-        android:id="@+id/clothes_button"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/fork_button"
-        android:background="@mipmap/cloths"/>
 
     <ImageView
         android:layout_width="250dp"
@@ -162,4 +149,40 @@
         android:paddingTop="110sp"
         android:src="@mipmap/egg0"
         android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/main_menu_btnshape"
+            android:id="@+id/menu_button"/>
+        <Button
+            android:id="@+id/button_store"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/dilan_gouwuche"/>
+        <Button
+            android:id="@+id/button_rank"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_geren"/>
+        <Button
+            android:id="@+id/button_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_home"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_haoyou"/>
+
+    </LinearLayout>
+
 </RelativeLayout>
