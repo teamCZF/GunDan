@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <gradient
-        android:startColor="#CCFFFF"
-        android:endColor="#CCFFFF"
-        android:angle="90" /><!--背景颜色渐变 -->
+    <solid android:color="#FFFFFF"/>
+
     <stroke
-        android:dashWidth="2dp"
-        android:dashGap="2dp"
-        android:width="2dp"
-        android:color="#FF00ff00">
+        android:width="4dp"
+        android:color="#FFFFFFFF">
     </stroke>
     <!--描边 -->
     <corners

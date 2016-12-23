@@ -60,6 +60,12 @@
         <item name="android:layout_weight">1</item>
     </style>
 
+    <!-- popwindow动画效果 -->
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/menushow</item>
+        <item name="android:windowExitAnimation">@anim/menuhide</item>
+    </style>
+
 
     <!-- 文本右边箭头样式 -->
     <style name="img_arrow">
