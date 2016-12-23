@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/mainbg1"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-
     tools:context="com.ui.MainActivity">
 
     <LinearLayout
         android:id="@+id/step_part"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:gravity="center"
@@ -58,9 +53,10 @@
 
     <LinearLayout
         android:id="@+id/pet_basic"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:layout_alignParentLeft="true">
         <TextView
             android:id="@+id/pet_name"
             android:layout_width="120dp"
@@ -83,7 +79,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/hp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/pet_basic">
         <TextView
@@ -101,7 +97,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/mp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/hp_progress">
         <TextView
@@ -119,7 +115,7 @@
     </LinearLayout>
     <LinearLayout
         android:id="@+id/exp_progress"
-        android:layout_width="160dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/mp_progress">
         <TextView
@@ -137,33 +133,57 @@
     </LinearLayout>
 
 
-    <ImageView
-        android:id="@+id/fork_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_alignParentLeft="true"
-        android:src="@mipmap/fork"/>
-    <ImageView
-        android:id="@+id/clothes_button"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_below="@id/fork_button"
-        android:src="@mipmap/cloths"/>
 
     <ImageView
         android:layout_width="250dp"
         android:layout_height="400dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/nest"
+        android:src="@mipmap/nest1"
         android:scaleType="fitEnd"
         android:id="@+id/pet_nest" />
     <ImageView
         android:id="@+id/egg"
-        android:layout_width="180dp"
-        android:layout_height="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@mipmap/egg"
-        android:scaleType="fitEnd"
+        android:paddingTop="110sp"
+        android:src="@mipmap/egg0"
         android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_marginLeft="15dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/main_menu_btnshape"
+            android:id="@+id/menu_button"/>
+        <Button
+            android:id="@+id/button_store"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/dilan_gouwuche"/>
+        <Button
+            android:id="@+id/button_rank"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_geren"/>
+        <Button
+            android:id="@+id/button_user"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_home"/>
+        <Button
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/dilan_haoyou"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

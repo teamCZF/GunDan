@@ -191,8 +191,8 @@ public class StepService extends Service implements SensorEventListener {
                 new Intent(this, MainActivity.class), 0);
         builder.setContentIntent(contentIntent);
         builder.setSmallIcon(R.mipmap.ic_launcher);
-        builder.setTicker("BasePedo");
-        builder.setContentTitle("BasePedo");
+        builder.setTicker("滚蛋");
+        builder.setContentTitle("滚蛋");
         //设置不可清除
         builder.setOngoing(true);
         builder.setContentText(content);
@@ -256,7 +256,7 @@ public class StepService extends Service implements SensorEventListener {
 
                     @Override
                     public void onChange() {
-                        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + "," + i + " 步");
+                        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP  + " 步");
                         //    updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + " 步");
                     }
                 });
@@ -266,7 +266,7 @@ public class StepService extends Service implements SensorEventListener {
     public void onSensorChanged(SensorEvent event) {
         i++;
         //   StepDcretor.CURRENT_SETP++;
-        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP + "," + i + " 步");
+        updateNotification("今日步数：" + StepDcretor.CURRENT_SETP +  " 步");
     }
 
     @Override
