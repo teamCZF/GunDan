@@ -12,4 +12,6 @@
     <item type="drawable" name="namcard_picker_bkg_hover">#ff333333</item>
     <item type="drawable" name="green">#009999</item>
     <item type="drawable" name="lowGreen">#C4E5E3</item>
+    <item type="drawable" name="appStyleBlue">#7DCFCB</item>
+    <item type="color" name="rankGray">#3F6175</item>
 </resources>

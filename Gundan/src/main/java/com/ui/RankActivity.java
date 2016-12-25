@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import java.util.List;
  * Created by Administrator on 2016/11/22 0022.
  */
 
-public class RankActivity extends Activity {
+public class RankActivity extends Activity implements View.OnClickListener{
     private List<Friend>  friendList=new ArrayList<Friend>();
 
     @Override
@@ -36,6 +37,18 @@ public class RankActivity extends Activity {
                 Toast.makeText(RankActivity.this,friend.getName(),Toast.LENGTH_SHORT).show();
             }
         });
+        Button backToMain=(Button)findViewById(R.id.rank_back);
+        backToMain.setOnClickListener(this);
+    }
+    @Override
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.rank_back:
+                finish();
+                break;
+            default:
+                break;
+        }
     }
     private void initFriends(){
         Friend f1=new Friend("小欣欣",R.mipmap.head6,"56123");

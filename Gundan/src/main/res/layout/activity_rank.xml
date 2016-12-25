@@ -11,14 +11,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/green"
+            android:background="@drawable/appStyleBlue"
             android:text="排行榜"
             android:textSize="25dp"
             android:textColor="#ffffff"
             android:gravity="center" />
         <Button
             android:id="@+id/add_friend"
-            android:background="@drawable/green"
+            android:background="@drawable/appStyleBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -33,4 +33,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
     </ListView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="0dp"
+        android:id="@+id/rank_back"
+        android:background="#00CCCCCC"
+        android:text="×"
+        android:textColor="@drawable/white"
+        android:gravity="center"
+        android:textSize="45dp"/>
 </LinearLayout>

@@ -52,45 +52,43 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/pet_basic"
-        android:padding="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:layout_alignParentLeft="true">
-        <TextView
-            android:id="@+id/pet_name"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:text="滚滚"
-            android:gravity="left"
-            android:textSize="24sp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LV "
-            android:textSize="20sp"
-            />
-        <TextView
-            android:id="@+id/pet_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="22sp"/>
-    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/pet_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
         android:layout_alignParentLeft="true"
         android:orientation="vertical">
         <LinearLayout
-            android:id="@+id/hp_progress"
+            android:padding="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/pet_basic">
+            android:gravity="bottom"
+            android:layout_alignParentLeft="true">
+            <TextView
+                android:id="@+id/pet_name"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="滚滚"
+                android:gravity="left"
+                android:textSize="24sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LV "
+                android:textSize="20sp"
+                />
+            <TextView
+                android:id="@+id/pet_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="22sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/hp_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -159,12 +157,15 @@
         android:paddingTop="110sp"
         android:src="@mipmap/egg0"
         android:layout_centerHorizontal="true" />
+
     <LinearLayout
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
         android:layout_alignParentBottom="true"
-        android:paddingBottom="5dp">
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -188,7 +189,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:background="@mipmap/personal_edit"/>
+            android:background="@mipmap/main_personal"/>
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
