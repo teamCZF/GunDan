@@ -1,5 +1,6 @@
 package com.Data;
 
+import com.base.basepedo.R;
 import com.litesuits.orm.db.annotation.Column;
 import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
@@ -23,6 +24,8 @@ public class Food {
     @Column("addedMP")
     private int addedMP;
     @Column("foodDescribe")
+
+
     private String foodDescribe;
 
     public int getFoodID() {

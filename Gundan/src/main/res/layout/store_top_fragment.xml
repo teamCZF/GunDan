@@ -5,13 +5,15 @@
     android:orientation="vertical">
 <ImageView
     android:layout_width="match_parent"
-    android:layout_height="70dp"
+    android:layout_height="0dp"
+    android:layout_weight="3"
     android:scaleType="fitXY"
     android:id="@+id/store_top"
-    android:src="@mipmap/store_top"/>
+    android:src="@drawable/store_top"/>
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:id="@+id/store_change"
         android:orientation="horizontal"
         >
@@ -19,7 +21,11 @@
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@drawable/store_food"
+            android:background="@drawable/radiobtn"
+            android:text="食物"
+            android:textSize="30dp"
+            android:textColor="@drawable/white"
+            android:textAlignment="center"
             android:id="@+id/buttonFood"
             android:button="@null"
             />
@@ -28,23 +34,35 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:id="@+id/buttonClo"
-            android:background="@drawable/store_clothes"
+            android:background="@drawable/radiobtn"
             android:button="@null"
+            android:text="衣服"
+            android:textSize="30dp"
+            android:textColor="@drawable/white"
+            android:textAlignment="center"
             />
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:id="@+id/buttonHome"
-            android:background="@drawable/store_home"
+            android:background="@drawable/radiobtn"
             android:button="@null"
+            android:text="背景"
+            android:textSize="30dp"
+            android:textColor="@drawable/white"
+            android:textAlignment="center"
             />
         <RadioButton
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_weight="1"
             android:id="@+id/buttonTools"
-            android:background="@drawable/store_tools"
+            android:background="@drawable/radiobtn"
+            android:text="道具"
+            android:textSize="30dp"
+            android:textColor="@drawable/white"
+            android:textAlignment="center"
             android:button="@null"/>
 
     </RadioGroup>
