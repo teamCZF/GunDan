@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -135,7 +136,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         int popupWidth = view.getMeasuredWidth();    //  获取测量后的宽度
         int popupHeight = view.getMeasuredHeight();  //获取测量后的高度
-        popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.corners_bg));
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
         int[] location = new int[2];

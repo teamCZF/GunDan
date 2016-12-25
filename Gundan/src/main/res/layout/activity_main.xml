@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/mainbg1"
+    android:background="@mipmap/main_bg"
     tools:context="com.ui.MainActivity">
 
     <LinearLayout
@@ -36,7 +36,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/step_part"
-        android:layout_alignParentRight="true">
+        android:layout_alignEnd="@+id/step_part"
+        android:layout_alignRight="@+id/pet_state">
         <ImageView
             android:layout_width="25dp"
             android:layout_height="25dp"
@@ -53,8 +54,9 @@
 
     <LinearLayout
         android:id="@+id/pet_basic"
+        android:padding="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:gravity="bottom"
         android:layout_alignParentLeft="true">
         <TextView
@@ -78,58 +80,66 @@
             android:textSize="22sp"/>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/hp_progress"
+        android:id="@+id/pet_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pet_basic">
-        <TextView
+        android:layout_marginTop="45dp"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/hp_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="健康值："
-            android:textSize="18sp"/>
-        <ProgressBar
-            android:id="@+id/hp_progressbar"
-            android:layout_width="120dp"
-            android:layout_height="22dp"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:max="100"
-            android:progress="50"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/mp_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/hp_progress">
-        <TextView
+            android:layout_below="@id/pet_basic">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="健康值："
+                android:textSize="18sp"/>
+            <ProgressBar
+                android:id="@+id/hp_progressbar"
+                android:layout_width="120dp"
+                android:layout_height="22dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="100"
+                android:progress="50"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mp_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="心情值："
-            android:textSize="18sp"/>
-        <ProgressBar
-            android:id="@+id/mp_progressbar"
-            android:layout_width="120dp"
-            android:layout_height="22dp"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:max="100"
-            android:progress="100"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/exp_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/mp_progress">
-        <TextView
+            android:layout_below="@id/hp_progress">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="心情值："
+                android:textSize="18sp"/>
+            <ProgressBar
+                android:id="@+id/mp_progressbar"
+                android:layout_width="120dp"
+                android:layout_height="22dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="100"
+                android:progress="100"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/exp_progress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  EXP   ："
-            android:textSize="18sp"/>
-        <ProgressBar
-            android:id="@+id/exp_progressbar"
-            android:layout_width="120dp"
-            android:layout_height="22dp"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:max="100"
-            android:progress="100"/>
+            android:layout_below="@id/mp_progress">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="  EXP   ："
+                android:textSize="18sp"/>
+            <ProgressBar
+                android:id="@+id/exp_progressbar"
+                android:layout_width="120dp"
+                android:layout_height="22dp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:max="100"
+                android:progress="100"/>
+        </LinearLayout>
     </LinearLayout>
 
 
@@ -138,7 +148,7 @@
         android:layout_width="250dp"
         android:layout_height="400dp"
         android:layout_centerInParent="true"
-        android:src="@mipmap/nest1"
+        android:src="@mipmap/nest"
         android:scaleType="fitEnd"
         android:id="@+id/pet_nest" />
     <ImageView
@@ -153,35 +163,37 @@
         android:id="@+id/menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp">
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/main_menu_btnshape"
+            android:background="@mipmap/main_plus"
+            android:layout_marginLeft="10dp"
             android:id="@+id/menu_button"/>
         <Button
             android:id="@+id/button_store"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="60dp"
-            android:background="@drawable/dilan_gouwuche"/>
+            android:layout_marginLeft="45dp"
+            android:background="@mipmap/main_shopping"/>
         <Button
             android:id="@+id/button_rank"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/dilan_geren"/>
+            android:background="@mipmap/main_ranking"/>
         <Button
             android:id="@+id/button_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/dilan_home"/>
+            android:background="@mipmap/personal_edit"/>
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"
-            android:background="@drawable/dilan_haoyou"/>
+            android:background="@mipmap/personal_tujian"/>
 
     </LinearLayout>
 
