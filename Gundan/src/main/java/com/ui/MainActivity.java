@@ -26,6 +26,8 @@ import com.config.Constant;
 import com.service.EggService;
 import com.service.StepService;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class MainActivity extends Activity implements Handler.Callback,View.OnClickListener{
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
@@ -33,8 +35,14 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private Handler delayHandler;
-
+    private GifImageView egg_gif;
     //
+    private int [] eggImage=new int []{
+            R.mipmap.egg0,
+            R.mipmap.egg1
+
+    };
+    int currentImage=0;
 
     ServiceConnection conn = new ServiceConnection() {
         @Override
@@ -96,7 +104,17 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         rankButton.setOnClickListener(this);
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
-
+        egg_gif=(GifImageView)findViewById(R.id.egg);
+        egg_gif.setImageResource(R.mipmap.egg0);
+        egg_gif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(currentImage>=1){
+                    currentImage=-1;
+                }
+                egg_gif.setImageResource(eggImage[++currentImage]);
+            }
+        });
 
     }
     @Override

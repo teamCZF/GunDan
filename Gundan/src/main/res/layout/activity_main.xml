@@ -149,13 +149,12 @@
         android:src="@mipmap/nest"
         android:scaleType="fitEnd"
         android:id="@+id/pet_nest" />
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/egg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:paddingTop="110sp"
-        android:src="@mipmap/egg0"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
