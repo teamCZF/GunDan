@@ -175,27 +175,25 @@
             android:id="@+id/button_store"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="60dp"
             android:background="@mipmap/main_shopping"/>
         <Button
             android:id="@+id/button_rank"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:background="@mipmap/main_ranking"/>
         <Button
             android:id="@+id/button_user"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="10dp"
             android:background="@mipmap/main_personal"/>
         <Button
             android:id="@+id/button_collection"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:background="@mipmap/personal_tujian"/>
-
+            android:layout_marginLeft="10dp"
+            android:background="@mipmap/main_tujian"/>
     </LinearLayout>
-
 </RelativeLayout>

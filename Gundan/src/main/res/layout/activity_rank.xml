@@ -40,11 +40,10 @@
         android:background="@drawable/lowGreen">
         <Button
             android:layout_centerHorizontal="true"
-            android:layout_width="80dp"
+            android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/rank_back"
-            android:text="×" android:background="@drawable/lowGreen"
-            android:textColor="@drawable/white"
+            android:background="@mipmap/main_home"
             android:gravity="center"
             android:textSize="45dp"/>
     </RelativeLayout>
