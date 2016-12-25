@@ -8,15 +8,15 @@
 
     <LinearLayout
         android:id="@+id/step_part"
+        android:layout_margin="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center"
         android:layout_alignParentRight="true">
         <TextView
             android:id="@+id/text_step"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:textSize="35sp"
             android:text="0"
@@ -39,12 +39,12 @@
         android:layout_alignEnd="@+id/step_part"
         android:layout_alignRight="@+id/pet_state">
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="@mipmap/gold"/>
         <TextView
             android:id="@+id/pet_money"
-            android:layout_width="80dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:text="6666"
@@ -191,6 +191,7 @@
             android:layout_marginLeft="15dp"
             android:background="@mipmap/main_personal"/>
         <Button
+            android:id="@+id/button_collection"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="15dp"

@@ -5,16 +5,9 @@
     android:orientation="vertical"
     android:background="@mipmap/personal_bg">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:id="@+id/user_back"
-        android:background="#00000000"
-        android:text="×"
-        android:textSize="50dp"/>
 
     <LinearLayout
+        android:id="@+id/image_head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -39,7 +32,7 @@
             />
     </LinearLayout>
 <LinearLayout
-    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/image_head"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -78,4 +71,14 @@
             android:textSize="@dimen/title_text_size"/>
     </LinearLayout>
 </LinearLayout>
+    <Button
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignParentRight="true"
+        android:id="@+id/user_back"
+        android:background="#00CCCCCC"
+        android:text="×"
+        android:textColor="@drawable/white"
+        android:gravity="center"
+        android:textSize="45dp"/>
 </RelativeLayout>

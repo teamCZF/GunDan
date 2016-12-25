@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/lowGreen"
-    android:orientation="vertical">
-
+    android:background="@drawable/lowGreen">
     <RelativeLayout
+        android:id="@+id/rank_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
@@ -29,18 +28,24 @@
     </RelativeLayout>
 
     <ListView
+        android:layout_below="@+id/rank_title"
         android:id="@+id/list_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
     </ListView>
-    <Button
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginBottom="0dp"
-        android:id="@+id/rank_back"
-        android:background="#00CCCCCC"
-        android:text="×"
-        android:textColor="@drawable/white"
-        android:gravity="center"
-        android:textSize="45dp"/>
-</LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/lowGreen">
+        <Button
+            android:layout_centerHorizontal="true"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:id="@+id/rank_back"
+            android:text="×" android:background="@drawable/lowGreen"
+            android:textColor="@drawable/white"
+            android:gravity="center"
+            android:textSize="45dp"/>
+    </RelativeLayout>
+</RelativeLayout>
