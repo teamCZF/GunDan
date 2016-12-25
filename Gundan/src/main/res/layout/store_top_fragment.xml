@@ -9,34 +9,44 @@
     android:scaleType="fitXY"
     android:id="@+id/store_top"
     android:src="@mipmap/store_top"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="@drawable/store_food"
-        android:id="@+id/buttonFood"/>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="@drawable/store_clothes"
-        android:id="@+id/buttonClo"/>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="@drawable/store_home"
-        android:id="@+id/buttonHome"/>
-    <Button
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_weight="1"
-        android:background="@drawable/store_tools"
-        android:id="@+id/buttonTools"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/store_change"
+        android:orientation="horizontal"
+        >
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/store_food"
+            android:id="@+id/buttonFood"
+            android:button="@null"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonClo"
+            android:background="@drawable/store_clothes"
+            android:button="@null"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonHome"
+            android:background="@drawable/store_home"
+            android:button="@null"
+            />
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:id="@+id/buttonTools"
+            android:background="@drawable/store_tools"
+            android:button="@null"/>
 
-</LinearLayout>
+    </RadioGroup>
+
 </LinearLayout>
