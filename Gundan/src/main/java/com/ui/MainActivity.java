@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Data.UserData;
 import com.base.basepedo.R;
 import com.config.Constant;
 import com.service.EggService;
@@ -31,6 +32,7 @@ import pl.droidsonroids.gif.GifImageView;
 public class MainActivity extends Activity implements Handler.Callback,View.OnClickListener{
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
+    private UserData user;
     private TextView text_step;
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
@@ -89,6 +91,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user=(UserData)getIntent().getSerializableExtra("user_data");
         init();
     }
     private void init() {
@@ -103,7 +106,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
         egg_gif=(GifImageView)findViewById(R.id.egg);
-        egg_gif.setImageResource(R.mipmap.egg0);
+        egg_gif.setImageResource(user.getUserImageID());
         egg_gif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

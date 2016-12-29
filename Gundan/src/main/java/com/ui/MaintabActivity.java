@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import com.Data.UserData;
 import com.utils.DbUtils;
+
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/12/29 0029.
@@ -28,7 +31,9 @@ public class MaintabActivity extends Activity{
         }
         else
         {
+            List<UserData> list=DbUtils.getQueryByWhere(UserData.class,"userName",new String[]{name});
             Intent intent=new Intent(MaintabActivity.this,MainActivity.class);
+            intent.putExtra("user_data",list.get(0));
             startActivity(intent);
             finish();
         }

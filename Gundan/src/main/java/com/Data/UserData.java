@@ -7,13 +7,14 @@ import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.enums.AssignType;
 import com.litesuits.orm.db.enums.Relation;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by Administrator on 2016/11/19 0019.
  */
 @Table("user")
-public class UserData {
+public class UserData implements Serializable{
     @PrimaryKey(AssignType.AUTO_INCREMENT)
     private int userID;
     @Column("userName")

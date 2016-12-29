@@ -61,6 +61,7 @@ public class LoginActivity extends Activity {
                         editor.commit();
                         //跳转界面
                         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                        intent.putExtra("user_data",list.get(0));
                         LoginActivity.this.startActivity(intent);
                         //finish();
 
