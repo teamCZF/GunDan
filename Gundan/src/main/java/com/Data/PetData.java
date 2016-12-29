@@ -4,17 +4,14 @@ package com.Data;
  * Created by Administrator on 2016/11/19 0019.
  */
 
+import com.base.basepedo.R;
 import com.litesuits.orm.db.annotation.Column;
-import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
-import com.litesuits.orm.db.enums.AssignType;
 
 import java.io.Serializable;
 
 @Table("pet")
 public class PetData implements Serializable {
-    @PrimaryKey(AssignType.AUTO_INCREMENT)
-    private int petID;
     @Column("petName")
     private String petName;
     @Column("petLevel")//等级
@@ -28,7 +25,14 @@ public class PetData implements Serializable {
     @Column("petImageID")
     private int petImageID;
 
-
+    public PetData(){
+        this.petName="滚滚";
+        this.petLevel=0;
+        this.exp=0;
+        this.healthPoint=100;
+        this.moodPoint=100;
+        this.petImageID= R.mipmap.egg0;
+    }
     public  String getPetName(){return petName;}
 
     public  void setPetName(String name){this.petName=name;}
@@ -53,12 +57,6 @@ public class PetData implements Serializable {
 
     public void setPetImageID(int imageID){this.petImageID=imageID;}
 
-    public void PetData(){
-        this.petName="滚滚";
-        this.petLevel=0;
-        this.exp=0;
-        this.healthPoint=100;
-        this.moodPoint=100;
-    }
+
 }
 

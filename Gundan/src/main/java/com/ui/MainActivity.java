@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Data.PetData;
 import com.Data.UserData;
 import com.base.basepedo.R;
 import com.config.Constant;
@@ -34,6 +35,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
     private UserData user;
+    private PetData myEgg;
     private static int lastStep=0;
     private TextView text_step;
     private Messenger messenger;
@@ -103,11 +105,13 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user=(UserData)getIntent().getSerializableExtra("user_data");
+        myEgg=(PetData)getIntent().getSerializableExtra("pet_data");
         init();
     }
     private void init() {
         text_step = (TextView) findViewById(R.id.text_step);
         delayHandler = new Handler(this);
+        //初始化界面
         Button menuButton=(Button)findViewById(R.id.menu_button);
         menuButton.setOnClickListener(this);
         Button storeButton=(Button)findViewById(R.id.button_store);
@@ -116,9 +120,19 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         rankButton.setOnClickListener(this);
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
+        //宠物名
+        TextView petName=(TextView)findViewById(R.id.pet_name);
+        petName.setText(myEgg.getPetName()+"");
+        petName.setOnClickListener(this);
+        //宠物等级
+        TextView petLevel=(TextView)findViewById(R.id.pet_level);
+        petLevel.setText(myEgg.getPetLevel()+"");
+        petLevel.setOnClickListener(this);
+
         petMoney=(TextView)findViewById(R.id.pet_money);
+        petMoney.setText(user.getMoney()+"");
         egg_gif=(GifImageView)findViewById(R.id.egg);
-        egg_gif.setImageResource(user.getUserImageID());
+        egg_gif.setImageResource(myEgg.getPetImageID());
         egg_gif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -202,7 +216,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     @Override
     protected void onResume() {
         super.onResume();
-        init();
+        //init();
     }
 
     @Override

@@ -53,8 +53,8 @@ public class UserData implements Serializable{
         this.userName=userName;
         this.password=password;
         this.money=0;
-        this.userImageID= R.mipmap.egg0;
-        this.totalStep="0";
+        this.userImageID= R.mipmap.head;
+        this.totalStep="0";;
     }
 
     public int getUserID() {
