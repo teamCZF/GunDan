@@ -304,6 +304,9 @@ public class StepService extends Service implements SensorEventListener {
             data.setStep(tempStep + "");
             DbUtils.update(data);
         } else {
+            StepData data =list.get(list.size()-1);
+            data.setStep(tempStep + "");
+            DbUtils.update(data);
         }
     }
 

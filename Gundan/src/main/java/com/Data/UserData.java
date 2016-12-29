@@ -1,9 +1,14 @@
 package com.Data;
 
 import com.litesuits.orm.db.annotation.Column;
+import com.litesuits.orm.db.annotation.Mapping;
 import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
 import com.litesuits.orm.db.enums.AssignType;
+import com.litesuits.orm.db.enums.Relation;
+
+import java.util.ArrayList;
+
 /**
  * Created by Administrator on 2016/11/19 0019.
  */
@@ -29,6 +34,23 @@ public class UserData {
     private int userImageID;
     @Column("totalStep")
     private long totalStep;
+    @Mapping(Relation.OneToOne)
+    public PetData egg;
+    @Mapping(Relation.OneToMany)
+    public ArrayList<Friend> friends;
+    @Mapping(Relation.OneToMany)
+    public ArrayList<Food> foods;
+    @Mapping(Relation.OneToMany)
+    public  ArrayList<Appearance> appearances;
+    @Mapping(Relation.OneToMany)
+    public ArrayList<tool> tools;
+
+
+    public  UserData(){}
+    public UserData(String userName,String password){
+        this.userName=userName;
+        this.password=password;
+    }
 
     public int getUserID() {
         return userID;

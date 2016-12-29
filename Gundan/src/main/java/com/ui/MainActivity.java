@@ -90,8 +90,6 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         init();
-
-
     }
     private void init() {
         text_step = (TextView) findViewById(R.id.text_step);
