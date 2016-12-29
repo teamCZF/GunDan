@@ -3,10 +3,18 @@ package com.Data;
 /**
  * Created by Administrator on 2016/11/19 0019.
  */
+
 import com.litesuits.orm.db.annotation.Column;
+import com.litesuits.orm.db.annotation.PrimaryKey;
 import com.litesuits.orm.db.annotation.Table;
+import com.litesuits.orm.db.enums.AssignType;
+
+import java.io.Serializable;
+
 @Table("pet")
-public class PetData{
+public class PetData implements Serializable {
+    @PrimaryKey(AssignType.AUTO_INCREMENT)
+    private int petID;
     @Column("petName")
     private String petName;
     @Column("petLevel")//等级

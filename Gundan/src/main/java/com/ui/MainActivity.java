@@ -26,6 +26,7 @@ import com.base.basepedo.R;
 import com.config.Constant;
 import com.service.EggService;
 import com.service.StepService;
+import com.utils.DbUtils;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -33,11 +34,13 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
     private UserData user;
+    private static int lastStep=0;
     private TextView text_step;
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private Handler delayHandler;
     private GifImageView egg_gif;
+    private TextView petMoney;
     //
     private int [] eggImage=new int []{
             R.mipmap.egg0,
@@ -70,7 +73,15 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         switch (msg.what) {
             case Constant.MSG_FROM_SERVER:
                 // 更新界面上的步数
-                text_step.setText(msg.getData().getInt("step") + "");
+                int currentStep=msg.getData().getInt("step");
+                text_step.setText( currentStep+ "");
+                if(currentStep-lastStep>200){
+                    int addstep=currentStep-lastStep;
+                    lastStep=currentStep;
+                    user.setMoney(addstep*10);
+                    DbUtils.update(user);
+                    petMoney.setText(user.getMoney()+"");
+                }
                 delayHandler.sendEmptyMessageDelayed(Constant.REQUEST_SERVER, TIME_INTERVAL);
                 break;
             case Constant.REQUEST_SERVER:
@@ -105,6 +116,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         rankButton.setOnClickListener(this);
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
+        petMoney=(TextView)findViewById(R.id.pet_money);
         egg_gif=(GifImageView)findViewById(R.id.egg);
         egg_gif.setImageResource(user.getUserImageID());
         egg_gif.setOnClickListener(new View.OnClickListener() {
@@ -126,14 +138,17 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 break;
             case R.id.button_store:
                 Intent intent1=new Intent(MainActivity.this,StoreActivity.class);
+                intent1.putExtra("user_data",user);
                 startActivity(intent1);
                 break;
             case R.id.button_rank:
                 Intent intent2=new Intent(MainActivity.this,RankActivity.class);
+                intent2.putExtra("user_data",user);
                 startActivity(intent2);
                 break;
             case R.id.button_user:
                 Intent intent3=new Intent(MainActivity.this,UserActivity.class);
+                intent3.putExtra("user_data",user);
                 startActivity(intent3);
                 break;
             case R.id.feed_button:

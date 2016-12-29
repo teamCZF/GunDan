@@ -54,7 +54,6 @@ public class RegisterActivity extends Activity {
                         }
                         else{
                             UserData user=new UserData(uname,pswd1);
-                            user.setUserImageID(R.mipmap.egg0);
                             DbUtils.insert(user);
                             Toast.makeText(RegisterActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(RegisterActivity.this,MainActivity.class);

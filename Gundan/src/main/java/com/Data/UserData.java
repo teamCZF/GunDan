@@ -1,5 +1,6 @@
 package com.Data;
 
+import com.base.basepedo.R;
 import com.litesuits.orm.db.annotation.Column;
 import com.litesuits.orm.db.annotation.Mapping;
 import com.litesuits.orm.db.annotation.PrimaryKey;
@@ -30,11 +31,11 @@ public class UserData implements Serializable{
     @Column("age")
     private int age;
     @Column("money")
-    private long money;
+    private int money;
     @Column("uerImageID")
     private int userImageID;
     @Column("totalStep")
-    private long totalStep;
+    private String totalStep;
     @Mapping(Relation.OneToOne)
     public PetData egg;
     @Mapping(Relation.OneToMany)
@@ -51,6 +52,9 @@ public class UserData implements Serializable{
     public UserData(String userName,String password){
         this.userName=userName;
         this.password=password;
+        this.money=0;
+        this.userImageID= R.mipmap.egg0;
+        this.totalStep="0";
     }
 
     public int getUserID() {
@@ -89,11 +93,11 @@ public class UserData implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    public long getMoney() {
+    public int getMoney() {
         return money;
     }
-    public void setMoney(long money) {
-        this.money = money;
+    public void setMoney(int money) {
+        this.money+=money;
     }
     public String getSex() {
         return sex;
@@ -101,10 +105,10 @@ public class UserData implements Serializable{
     public void setSex(String sex) {
         this.sex = sex;
     }
-    public long getTotalStep() {
+    public String getTotalStep() {
         return totalStep;
     }
-    public void setTotalStep(long totalStep) {
+    public void setTotalStep(String totalStep) {
         this.totalStep = totalStep;
     }
     public int getWeight() {
