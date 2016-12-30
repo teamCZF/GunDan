@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.Data.PetData;
 import com.Data.UserData;
 import com.base.basepedo.R;
 import com.utils.DbUtils;
@@ -54,11 +55,11 @@ public class RegisterActivity extends Activity {
                         }
                         else{
                             UserData user=new UserData(uname,pswd1);
-                            user.setUserImageID(R.mipmap.egg0);
-                            DbUtils.insert(user);
+                            PetData myEgg=new PetData();
                             Toast.makeText(RegisterActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
                             intent.putExtra("user_data",user);
+                            intent.putExtra("pet_data",myEgg);
                             startActivity(intent);
                             finish();
                         }

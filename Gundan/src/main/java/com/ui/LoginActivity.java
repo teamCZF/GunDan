@@ -40,7 +40,7 @@ public class LoginActivity extends Activity {
         login=(Button)findViewById(R.id.button_login);
         register=(Button)findViewById(R.id.login_register);
 
-        // 登录监听事件  现在默认为用户名为：liu 密码：123
+        // 登录监听事件
         login.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {

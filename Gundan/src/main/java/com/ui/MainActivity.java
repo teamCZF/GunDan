@@ -21,11 +21,13 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Data.PetData;
 import com.Data.UserData;
 import com.base.basepedo.R;
 import com.config.Constant;
 import com.service.EggService;
 import com.service.StepService;
+import com.utils.DbUtils;
 
 import pl.droidsonroids.gif.GifImageView;
 
@@ -33,11 +35,14 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     //循环取当前时刻的步数中间的间隔时间
     private long TIME_INTERVAL = 500;
     private UserData user;
+    private PetData myEgg;
+    private static int lastStep=0;
     private TextView text_step;
     private Messenger messenger;
     private Messenger mGetReplyMessenger = new Messenger(new Handler(this));
     private Handler delayHandler;
     private GifImageView egg_gif;
+    private TextView petMoney;
     //
     private int [] eggImage=new int []{
             R.mipmap.egg0,
@@ -70,7 +75,15 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         switch (msg.what) {
             case Constant.MSG_FROM_SERVER:
                 // 更新界面上的步数
-                text_step.setText(msg.getData().getInt("step") + "");
+                int currentStep=msg.getData().getInt("step");
+                text_step.setText( currentStep+ "");
+                if(currentStep-lastStep>200){
+                    int addstep=currentStep-lastStep;
+                    lastStep=currentStep;
+                    user.setMoney(addstep*10);
+                    DbUtils.update(user);
+                    petMoney.setText(user.getMoney()+"");
+                }
                 delayHandler.sendEmptyMessageDelayed(Constant.REQUEST_SERVER, TIME_INTERVAL);
                 break;
             case Constant.REQUEST_SERVER:
@@ -92,11 +105,13 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user=(UserData)getIntent().getSerializableExtra("user_data");
+        myEgg=(PetData)getIntent().getSerializableExtra("pet_data");
         init();
     }
     private void init() {
         text_step = (TextView) findViewById(R.id.text_step);
         delayHandler = new Handler(this);
+        //初始化界面
         Button menuButton=(Button)findViewById(R.id.menu_button);
         menuButton.setOnClickListener(this);
         Button storeButton=(Button)findViewById(R.id.button_store);
@@ -105,8 +120,19 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         rankButton.setOnClickListener(this);
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
+        //宠物名
+        TextView petName=(TextView)findViewById(R.id.pet_name);
+        petName.setText(myEgg.getPetName()+"");
+        petName.setOnClickListener(this);
+        //宠物等级
+        TextView petLevel=(TextView)findViewById(R.id.pet_level);
+        petLevel.setText(myEgg.getPetLevel()+"");
+        petLevel.setOnClickListener(this);
+
+        petMoney=(TextView)findViewById(R.id.pet_money);
+        petMoney.setText(user.getMoney()+"");
         egg_gif=(GifImageView)findViewById(R.id.egg);
-        egg_gif.setImageResource(user.getUserImageID());
+        egg_gif.setImageResource(myEgg.getPetImageID());
         egg_gif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,14 +152,17 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 break;
             case R.id.button_store:
                 Intent intent1=new Intent(MainActivity.this,StoreActivity.class);
+                intent1.putExtra("user_data",user);
                 startActivity(intent1);
                 break;
             case R.id.button_rank:
                 Intent intent2=new Intent(MainActivity.this,RankActivity.class);
+                intent2.putExtra("user_data",user);
                 startActivity(intent2);
                 break;
             case R.id.button_user:
                 Intent intent3=new Intent(MainActivity.this,UserActivity.class);
+                intent3.putExtra("user_data",user);
                 startActivity(intent3);
                 break;
             case R.id.feed_button:
@@ -187,7 +216,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     @Override
     protected void onResume() {
         super.onResume();
-        init();
+        //init();
     }
 
     @Override
