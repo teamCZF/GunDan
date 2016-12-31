@@ -37,7 +37,7 @@
                 android:textColor="@drawable/white"
                 />
             <LinearLayout
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="25dp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -110,6 +110,18 @@
             android:text="历史步数"
             android:textSize="@dimen/title_text_size"/>
     </LinearLayout>
+    <LinearLayout
+        style="@style/bottom_layout">
+        <Button
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@color/rankGray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="退出"
+            android:textSize="20dp"
+            android:id="@+id/logout"/>
+    </LinearLayout>
 </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -119,10 +131,10 @@
         <Button
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_centerHorizontal="true"
             android:id="@+id/user_back"
             android:background="@mipmap/main_home"
             android:gravity="center"
-        />
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
     </RelativeLayout>
 </RelativeLayout>

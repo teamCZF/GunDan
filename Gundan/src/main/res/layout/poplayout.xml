@@ -6,17 +6,17 @@
     android:orientation="vertical"
     >
     <Button
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:id="@+id/feed_button"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:background="@mipmap/fork"/>
     <Button
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         android:id="@+id/clothes_button"
         android:layout_gravity="center"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:background="@mipmap/cloths"/>
 </LinearLayout>

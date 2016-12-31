@@ -55,11 +55,12 @@ public class RegisterActivity extends Activity {
                         }
                         else{
                             UserData user=new UserData(uname,pswd1);
-                            PetData myEgg=new PetData();
+                            PetData myEgg=new PetData(user.getUserID());
+                            DbUtils.insert(user);
+                            DbUtils.insert(myEgg);
                             Toast.makeText(RegisterActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
                             intent.putExtra("user_data",user);
-                            intent.putExtra("pet_data",myEgg);
                             startActivity(intent);
                             finish();
                         }

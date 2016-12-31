@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,10 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private Handler delayHandler;
     private GifImageView egg_gif;
     private TextView petMoney;
+
+    private static ProgressBar HungerProgress;
+    private static ProgressBar HappinessProgress;
+    private static ProgressBar experienceProgress;
     //
     private int [] eggImage=new int []{
             R.mipmap.egg0,
@@ -78,9 +83,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 int currentStep=msg.getData().getInt("step");
                 text_step.setText( currentStep+ "");
                 if(currentStep-lastStep>200){
-                    int addstep=currentStep-lastStep;
-                    lastStep=currentStep;
-                    user.setMoney(addstep*10);
+                    user.setMoney(user.getMoney()+20);
                     DbUtils.update(user);
                     petMoney.setText(user.getMoney()+"");
                 }
@@ -105,7 +108,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user=(UserData)getIntent().getSerializableExtra("user_data");
-        myEgg=(PetData)getIntent().getSerializableExtra("pet_data");
+        myEgg=DbUtils.getQueryAll(PetData.class).get(0);
         init();
     }
     private void init() {
@@ -166,6 +169,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 startActivity(intent3);
                 break;
             case R.id.feed_button:
+                //foodShowUp(v);
                 Toast.makeText(MainActivity.this, "喂食成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clothes_button:
@@ -189,12 +193,29 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         popupWindow.setOutsideTouchable(true);
         int[] location = new int[2];
         v.getLocationOnScreen(location);
+        //让弹窗出现在VIEW上方
         //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
         Button feedButton=(Button) view.findViewById(R.id.feed_button);
         Button dressButton=(Button)view.findViewById(R.id.clothes_button);
         feedButton.setOnClickListener(this);
         dressButton.setOnClickListener(this);
+    }
+
+    private void foodShowUp(View v){
+        LayoutInflater layoutInflater=LayoutInflater.from(this);
+        View view=layoutInflater.inflate(R.layout.main_food_pop,null);
+        PopupWindow popupWindow=new PopupWindow(view,
+                WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
+        int popupWidth = view.getMeasuredWidth();    //  获取测量后的宽度
+        int popupHeight = view.getMeasuredHeight();  //获取测量后的高度
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setFocusable(true);
+        popupWindow.setOutsideTouchable(true);
+        int[] location = new int[2];
+        v.getLocationOnScreen(location);
+        popupWindow.showAsDropDown(v);
     }
 
     @Override

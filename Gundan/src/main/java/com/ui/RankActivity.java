@@ -51,7 +51,7 @@ public class RankActivity extends Activity implements View.OnClickListener{
         }
     }
     private void initFriends(){
-        Friend f1=new Friend("小欣欣",R.mipmap.head6,"56123");
+        Friend f1=new Friend("小欣欣",R.mipmap.head5,"56123");
         friendList.add(f1);
         Friend f2=new Friend("小虹虹",R.mipmap.head4,"40000");
         friendList.add(f2);

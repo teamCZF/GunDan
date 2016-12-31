@@ -2,6 +2,7 @@ package com.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,6 +28,8 @@ public class UserActivity extends Activity implements View.OnClickListener{
         Button historyStep = (Button) findViewById(R.id.button_historyStep);
         Button myHonor = (Button) findViewById(button_myHonor);
         Button backToMain=(Button)findViewById(R.id.user_back);
+        Button logout=(Button)findViewById(R.id.logout);
+        logout.setOnClickListener(this);
         SetInfo.setOnClickListener(this);
         historyStep.setOnClickListener(this);
         myHonor.setOnClickListener(this);
@@ -47,6 +50,13 @@ public class UserActivity extends Activity implements View.OnClickListener{
             case  R.id.user_back:
                 finish();
                 break;
+            case R.id.logout:
+                SharedPreferences sp=getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+                SharedPreferences.Editor editor=sp.edit();
+                editor.clear();
+                editor.commit();
+                Intent intent=new Intent(this,LoginActivity.class);
+                startActivity(intent);
             default:
                 break;
         }
