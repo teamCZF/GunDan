@@ -8,6 +8,9 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.Log;
 
+import com.Data.PetData;
+import com.utils.DbUtils;
+
 import java.util.Date;
 
 /**
@@ -24,12 +27,25 @@ public class EggService extends Service {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.d("EGGSERVICE", "executed at: "+new Date().toString());
+                PetData egg= DbUtils.getQueryAll(PetData.class).get(0);
+                int eggHp=egg.getHealthPoint();
+                int eggMp=egg.getMoodPoint();
+                if(eggHp>0){
+                    eggHp--;
+                    egg.setHealthPoint(eggHp);
+
+                }
+                if(eggMp>0){
+                    eggMp--;
+                    egg.setMoodPoint(eggMp);
+                }
+                DbUtils.update(egg);
+                Log.i("EGGSERVICE", "executed at: "+new Date().toString()+" EggHP="+Integer.valueOf(egg.getHealthPoint()).toString());
             }
         }).start();
         AlarmManager manager =(AlarmManager) getSystemService(ALARM_SERVICE);
-        int anHour =60*60*1000;//这是一小时的毫秒数
-        long triggerAtTime = SystemClock.elapsedRealtime()+anHour;
+        int minutes =7*60*1000;//这是7分钟的毫秒数
+        long triggerAtTime = SystemClock.elapsedRealtime()+minutes;
         Intent i=new Intent(this,AlarmReceiver.class);
         PendingIntent pi=PendingIntent.getBroadcast(this,0,i,0);
         manager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,triggerAtTime,pi);

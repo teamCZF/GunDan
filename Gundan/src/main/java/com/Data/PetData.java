@@ -25,12 +25,27 @@ public class PetData implements Serializable {
     @Column("moodPoint")
     private int moodPoint;
     @Column("exp")
-    private long exp;
+    private int exp;
     @Column("petImageID")
     private int petImageID;
-
+    public PetData(){
+        this.petName="滚滚";
+        this.petLevel=0;
+        this.exp=0;
+        this.healthPoint=100;
+        this.moodPoint=100;
+        this.petImageID= R.mipmap.egg0;
+    }
     public PetData(int userID){
         this.userID=userID;
+        this.petName="滚滚";
+        this.petLevel=0;
+        this.exp=0;
+        this.healthPoint=100;
+        this.moodPoint=100;
+        this.petImageID= R.mipmap.egg0;
+    }
+    public void  init(){
         this.petName="滚滚";
         this.petLevel=0;
         this.exp=0;
@@ -78,20 +93,42 @@ public class PetData implements Serializable {
 
     public int getHealthPoint(){return healthPoint;}
 
-    public  void addHealthPoint(int hp){this.healthPoint+=hp;}
+    public  void setHealthPoint(int hp){this.healthPoint=hp;}
 
     public  int getMoodPoint(){return  moodPoint;}
 
+    public void setMoodPoint(int moodPoint) {
+        this.moodPoint = moodPoint;
+    }
+
     public void addMoodPoint(int mp){this.moodPoint+=mp;}
 
-    public long getExp(){return exp;}
+    public int getExp(){return exp;}
 
-    public void addExp(long exp){this.exp+=exp;}
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
+    public void addExp(int exp){this.exp+=exp;}
 
     public int getPetImageID(){return petImageID;}
 
     public void setPetImageID(int imageID){this.petImageID=imageID;}
 
+    public static String[] getmTouchDialog() {
+        return mTouchDialog;
+    }
 
+    public static int[] getHungerHeadImage() {
+        return hungerHeadImage;
+    }
+
+    public static int[] getOnTouchImage() {
+        return onTouchImage;
+    }
+
+    public static String[] getmHungerDialog() {
+        return mHungerDialog;
+    }
 }
 

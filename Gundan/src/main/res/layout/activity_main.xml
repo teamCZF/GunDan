@@ -37,7 +37,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/step_part"
         android:layout_alignEnd="@+id/step_part"
-        android:layout_alignRight="@+id/pet_state">
+        android:layout_alignRight="@+id/pet_state"
+        android:id="@+id/linearLayout">
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -139,21 +140,21 @@
                 android:progress="100"/>
         </LinearLayout>
     </LinearLayout>
-
-
-
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="400dp"
-        android:layout_centerInParent="true"
+        android:layout_width="275dp"
+        android:layout_height="200dp"
         android:src="@mipmap/nest"
         android:scaleType="fitEnd"
-        android:id="@+id/pet_nest" />
+        android:id="@+id/pet_nest"
+        android:layout_above="@+id/menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp" />
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/egg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:src="@mipmap/egg0"
         android:paddingTop="110sp"
         android:layout_centerHorizontal="true" />
 
@@ -196,4 +197,15 @@
             android:layout_marginLeft="10dp"
             android:background="@mipmap/main_tujian"/>
     </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/egg_hatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/tujian1"
+        android:visibility="gone"
+        android:paddingTop="110sp"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
