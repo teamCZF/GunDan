@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/lowGreen">
+    <ImageButton
+        android:id="@+id/eat_food1"
+        android:background="@drawable/lowGreen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/food1"
+        />
+    <ImageButton
+        android:id="@+id/eat_food2"
+        android:background="@drawable/lowGreen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:src="@mipmap/food2"
+        android:layout_height="match_parent" />
+    <ImageButton
+        android:id="@+id/eat_food3"
+        android:background="@drawable/lowGreen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/food3"
+        />
+    <ImageButton
+        android:id="@+id/eat_food4"
+        android:background="@drawable/lowGreen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/food4"
+        />
+    <ImageButton
+        android:id="@+id/eat_food5"
+        android:background="@drawable/lowGreen"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:src="@mipmap/food5"
+        />
+</LinearLayout>

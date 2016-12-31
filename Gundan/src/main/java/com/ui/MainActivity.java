@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -115,8 +116,8 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         text_step = (TextView) findViewById(R.id.text_step);
         delayHandler = new Handler(this);
         //初始化界面
-        Button menuButton=(Button)findViewById(R.id.menu_button);
-        menuButton.setOnClickListener(this);
+        Button feedButton=(Button)findViewById(R.id.feed_button);
+        feedButton.setOnClickListener(this);
         Button storeButton=(Button)findViewById(R.id.button_store);
         storeButton.setOnClickListener(this);
         Button rankButton=(Button)findViewById(R.id.button_rank);
@@ -150,9 +151,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     @Override
     public void onClick(View v){
         switch (v.getId()){
-            case R.id.menu_button:
-                popShowUp(v);
-                break;
+
             case R.id.button_store:
                 Intent intent1=new Intent(MainActivity.this,StoreActivity.class);
                 intent1.putExtra("user_data",user);
@@ -169,8 +168,8 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 startActivity(intent3);
                 break;
             case R.id.feed_button:
-                //foodShowUp(v);
-                Toast.makeText(MainActivity.this, "喂食成功", Toast.LENGTH_SHORT).show();
+                popShowUp(v);
+                //Toast.makeText(MainActivity.this, "喂食成功", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.clothes_button:
                 Toast.makeText(MainActivity.this, "换装成功", Toast.LENGTH_SHORT).show();
@@ -182,7 +181,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     }
     private void popShowUp(View v){
         LayoutInflater layoutInflater=LayoutInflater.from(this);
-        View view=layoutInflater.inflate(R.layout.poplayout,null);
+        View view=layoutInflater.inflate(R.layout.main_food_pop,null);
         PopupWindow popupWindow=new PopupWindow(view,
                 WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
@@ -196,27 +195,12 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         //让弹窗出现在VIEW上方
         //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
-        Button feedButton=(Button) view.findViewById(R.id.feed_button);
-        Button dressButton=(Button)view.findViewById(R.id.clothes_button);
-        feedButton.setOnClickListener(this);
-        dressButton.setOnClickListener(this);
+        ImageButton feedButton1=(ImageButton) view.findViewById(R.id.eat_food1);
+        ImageButton feedButton2=(ImageButton) view.findViewById(R.id.eat_food2);
+        feedButton1.setOnClickListener(this);
+        feedButton2.setOnClickListener(this);
     }
 
-    private void foodShowUp(View v){
-        LayoutInflater layoutInflater=LayoutInflater.from(this);
-        View view=layoutInflater.inflate(R.layout.main_food_pop,null);
-        PopupWindow popupWindow=new PopupWindow(view,
-                WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
-        view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        int popupWidth = view.getMeasuredWidth();    //  获取测量后的宽度
-        int popupHeight = view.getMeasuredHeight();  //获取测量后的高度
-        popupWindow.setBackgroundDrawable(new BitmapDrawable());
-        popupWindow.setFocusable(true);
-        popupWindow.setOutsideTouchable(true);
-        int[] location = new int[2];
-        v.getLocationOnScreen(location);
-        popupWindow.showAsDropDown(v);
-    }
 
     @Override
     protected void onStart() {
