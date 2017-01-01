@@ -381,7 +381,14 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         moveTaskToBack(true);
         super.onBackPressed();
     }
-
+    @Override
+    protected void onPause(){
+        super.onPause();
+        if(popupWindow!=null) {
+            popupWindow.dismiss();
+            popupWindow = null;
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
