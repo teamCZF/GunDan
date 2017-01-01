@@ -2,6 +2,7 @@ package com.ui;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -25,10 +26,12 @@ public class RegisterActivity extends Activity {
     private EditText passwd1;
     private EditText passwd2;
     String uname,pswd1,pswd2;
+    SharedPreferences sp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        sp=getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
         Button regist=(Button)findViewById(R.id.button_register);
         username=(EditText)findViewById(R.id.register_username);
         passwd1=(EditText)findViewById(R.id.register_password);
@@ -58,6 +61,10 @@ public class RegisterActivity extends Activity {
                             PetData myEgg=new PetData(user.getUserID());
                             DbUtils.insert(user);
                             DbUtils.insert(myEgg);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("USER_NAME", uname);
+                            editor.putString("PASSWORD",pswd1);
+                            editor.commit();
                             Toast.makeText(RegisterActivity.this,"注册成功", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(RegisterActivity.this,MainActivity.class);
                             intent.putExtra("user_data",user);

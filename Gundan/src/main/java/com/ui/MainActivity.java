@@ -13,6 +13,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,6 +37,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import pl.droidsonroids.gif.GifImageView;
+
+import static android.content.ContentValues.TAG;
 
 public class MainActivity extends Activity implements Handler.Callback,View.OnClickListener{
     //循环取当前时刻的步数中间的间隔时间
@@ -289,6 +292,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         //满级
         if(currentLevel>maxPetLevel){
             myEgg.init();
+            Log.i(TAG, "upgrade:"+" hatch\t  current level="+myEgg.getPetLevel());
             DbUtils.update(myEgg);
             getEggState();
             maxExp=baseEXP;
@@ -318,7 +322,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
             expProgress.setMax(maxExp);
             petLevel.setText(currentLevel+"");
             updateProgressBar(100,100,0);
-
+            Log.i(TAG, "upgrade: +current level="+myEgg.getPetLevel());
         }
     }
     @Override

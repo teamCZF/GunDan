@@ -19,9 +19,9 @@ import static com.base.basepedo.R.id.button_myHonor;
  */
 
 public class UserActivity extends Activity implements View.OnClickListener{
-    private UserData user;
-    private SharedPreferences sp;
-    private String name;
+    private static UserData user;
+    private static SharedPreferences sp;
+    private static String name;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
