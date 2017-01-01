@@ -25,7 +25,6 @@ public class Food {
     private int addedMP;
     @Column("foodDescribe")
 
-
     private String foodDescribe;
 
     public int getFoodID() {

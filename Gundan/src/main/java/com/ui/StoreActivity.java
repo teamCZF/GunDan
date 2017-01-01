@@ -12,6 +12,7 @@ import android.app.FragmentTransaction;
 import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +21,18 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 import android.content.Intent;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.Data.PetData;
+import com.Data.Property;
+import com.Data.UserData;
 import com.base.basepedo.R;
+import com.utils.DbUtils;
 
 public class StoreActivity extends Activity implements View.OnClickListener
 {
@@ -36,6 +42,8 @@ public class StoreActivity extends Activity implements View.OnClickListener
     private Button btnf3;
     private Button btnf4;
     private Button btnf5;
+    private UserData user;
+    private Property prop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -61,8 +69,10 @@ public class StoreActivity extends Activity implements View.OnClickListener
                 click(checkedId);
             }
         });
+        user=(UserData)getIntent().getSerializableExtra("user_data");
     }
-    private void confirmshow(View v){
+    private void confirmshow(View v)
+    {
         LayoutInflater layoutInflater=LayoutInflater.from(this);
         View view=layoutInflater.inflate(R.layout.food_confirm,null);
         PopupWindow popupWindow=new PopupWindow(view, WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
@@ -75,9 +85,9 @@ public class StoreActivity extends Activity implements View.OnClickListener
         //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(this.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
         Button confirmbtn=(Button) view.findViewById(R.id.confirm_buy);
-        Button canclebtn=(Button)view.findViewById(R.id.cancel_buy);
+        //Button canclebtn=(Button)view.findViewById(R.id.cancel_by);u
         confirmbtn.setOnClickListener(this);
-        canclebtn.setOnClickListener(this);
+        //canclebtn.setOnClickListener(this);
     }
     @Override
     public void onClick(View v)
@@ -88,9 +98,13 @@ public class StoreActivity extends Activity implements View.OnClickListener
                 confirmshow(v);
                 break;
             case R.id.confirm_buy:
-
+                prop=new Property(user.getUserID(),1,1,1);
+                DbUtils.insert(prop);
+                Toast.makeText(StoreActivity.this,"购买成功",Toast.LENGTH_SHORT).show();
+                user.setMoney(user.getMoney()-200);
+                DbUtils.insert(user);
                 break;
-            case R.id.foodbutton3:
+            case R.id.foodbutton2:
 
                 break;
             case R.id.foodbutton4:

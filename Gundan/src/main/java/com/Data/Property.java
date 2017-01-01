@@ -10,12 +10,21 @@ import com.litesuits.orm.db.enums.AssignType;
  */
 @Table("Property")
 public class Property {
-    @PrimaryKey(AssignType.AUTO_INCREMENT)
+    @PrimaryKey(AssignType.BY_MYSELF)
     private int pUesrID;
-    @PrimaryKey(AssignType.AUTO_INCREMENT)
+    @Column("pGoodsID")
     private int pGoodsID;
     @Column("number")
     private int number;
+    @Column("ptype")
+    private int ptype;
+    public Property(int userid,int goodsid,int number,int type)
+    {
+        this.pUesrID=userid;
+        this.pGoodsID=goodsid;
+        this.number=userid;
+        this.ptype=type;
+    }
 
     public int getpGoodsID() {
         return pGoodsID;
@@ -40,5 +49,14 @@ public class Property {
     public void setpUesrID(int pUesrID) {
         this.pUesrID = pUesrID;
     }
+
+    public int getPtype() {
+        return ptype;
+    }
+    public void setPtype(int ptype)
+    {
+        this.ptype = ptype;
+    }
+
 }
 

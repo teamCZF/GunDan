@@ -55,7 +55,8 @@
                     />
                 <TextView style="@style/usertext"
                     android:text="修改头像"
-                    android:gravity="right"/>
+                    android:gravity="right"
+                    />
                 <ImageView
                     style="@style/img_arrow" />
             </LinearLayout>
@@ -65,10 +66,10 @@
             <!-- 上圆角-->
             <LinearLayout style="@style/top_layout">
                 <TextView style="@style/usertext" android:text="昵称" />
-                <TextView
+                <EditText
                     android:id="@+id/text_my_name"
                     style="@style/usertext"
-                    android:text="小虹虹"
+                    android:hint="小虹虹"
                     android:gravity="right" />
                 <ImageView style="@style/img_arrow"/>
             </LinearLayout>
@@ -79,10 +80,10 @@
             <LinearLayout style="@style/mid_layout">
                 <TextView style="@style/usertext"
                     android:text="性别" />
-                <TextView
+                <EditText
                     style="@style/usertext"
                     android:id="@+id/text_my_sex"
-                    android:text="女"
+                    android:hint="女"
                     android:gravity="right" />
                 <ImageView style="@style/img_arrow"/>
             </LinearLayout>
@@ -90,10 +91,10 @@
             <LinearLayout style="@style/mid_layout">
                 <TextView style="@style/usertext"
                 android:text="年龄" />
-                <TextView
+                <EditText
                 style="@style/usertext"
                 android:id="@+id/text_my_age"
-                android:text="18"
+                android:hint="18"
                 android:gravity="right"
                 />
                 <ImageView style="@style/img_arrow"/>
@@ -104,10 +105,10 @@
             <LinearLayout style="@style/mid_layout">
                 <TextView style="@style/usertext"
                 android:text="身高" />
-                <TextView
+                <EditText
                 style="@style/usertext"
                 android:id="@+id/text_my_height"
-                android:text="165cm"
+                android:hint="165cm"
                 android:gravity="right"
                 />
                 <ImageView style="@style/img_arrow"/>

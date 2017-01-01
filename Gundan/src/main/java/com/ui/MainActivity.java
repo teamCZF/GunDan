@@ -127,7 +127,8 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user=(UserData)getIntent().getSerializableExtra("user_data");
@@ -152,6 +153,8 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         rankButton.setOnClickListener(this);
         Button setButton=(Button)findViewById(R.id.button_user);
         setButton.setOnClickListener(this);
+        Button collectionButton=(Button)findViewById(R.id.button_collection);
+        collectionButton.setOnClickListener(this);
         //宠物名
         petName=(TextView)findViewById(R.id.pet_name);
         petName.setText(myEgg.getPetName()+"");
@@ -186,6 +189,11 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 Intent intent3=new Intent(MainActivity.this,UserActivity.class);
                 intent3.putExtra("user_data",user);
                 startActivity(intent3);
+                break;
+            case R.id.button_collection:
+                Intent intent4=new Intent(MainActivity.this,collection.class);
+                intent4.putExtra("user_data",user);
+                startActivity(intent4);
                 break;
             case R.id.feed_button:
                 popShowUp(v);

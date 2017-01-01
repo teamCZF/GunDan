@@ -20,16 +20,18 @@ public class UserData implements Serializable{
     private int userID;
     @Column("userName")
     private String userName;
+    @Column("nickName")
+    private String nickName;
     @Column("height")
-    private int height;
+    private String height;
     @Column("weight")
-    private int weight;
+    private String weight;
     @Column("password")
     private String password;
     @Column("sex")
     private  String sex;
     @Column("age")
-    private int age;
+    private String age;
     @Column("money")
     private int money;
     @Column("uerImageID")
@@ -69,16 +71,16 @@ public class UserData implements Serializable{
     public void setUserName(String userName) {
         this.userName = userName;
     }
-    public int getAge() {
+    public String getAge() {
         return age;
     }
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
-    public int getHeight() {
+    public String getHeight() {
         return height;
     }
-    public void setHeight(int height) {
+    public void setHeight(String height) {
         this.height = height;
     }
     public int getUserImageID() {
@@ -111,10 +113,18 @@ public class UserData implements Serializable{
     public void setTotalStep(String totalStep) {
         this.totalStep = totalStep;
     }
-    public int getWeight() {
+    public String getWeight() {
         return weight;
     }
-    public void setWeight(int weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
+    }
+    public String getNickName()
+    {
+        return nickName;
+    }
+    public void setNickName(String nickname)
+    {
+        this.nickName=nickname;
     }
 }
