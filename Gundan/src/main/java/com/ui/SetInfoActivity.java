@@ -19,10 +19,11 @@ public class SetInfoActivity extends Activity implements View.OnClickListener{
     private Button backToUser;
     private Button saveInfo;
     private UserData user;
-    private EditText etname;
+    private EditText etnick;
     private EditText etsex;
     private EditText etage;
     private EditText etheight;
+    private EditText etweight;
 
 
     @Override
@@ -34,10 +35,10 @@ public class SetInfoActivity extends Activity implements View.OnClickListener{
         saveInfo =(Button)findViewById(R.id.save_info);
         saveInfo.setOnClickListener(this);
         user=(UserData)getIntent().getSerializableExtra("user_data");
-        etname=(EditText)findViewById(R.id.text_my_name);
+        etnick=(EditText)findViewById(R.id.text_my_name);
         etsex=(EditText)findViewById(R.id.text_my_sex);
         etage=(EditText)findViewById(R.id.text_my_age);
-        etheight=(EditText)findViewById(R.id.text_my_height);
+        etweight=(EditText)findViewById(R.id.text_my_height);
         EditText en=(EditText)findViewById(R.id.text_my_name);
         en.setHint(user.getNickName());
 
@@ -50,14 +51,16 @@ public class SetInfoActivity extends Activity implements View.OnClickListener{
                 finish();
                 break;
             case R.id.save_info:
-                String name =etage.getText().toString();
+                String name =etnick.getText().toString();
                 user.setNickName(name);
-                String sex =etage.getText().toString();
+                String sex =etsex.getText().toString();
                 user.setSex(sex);
                 String age =etage.getText().toString();
                 user.setAge(age);
-                String height =etage.getText().toString();
+                String height =etheight.getText().toString();
                 user.setHeight(height);
+                String weight =etweight.getText().toString();
+                user.setHeight(weight);
                 DbUtils.update(user);
                 finish();
                 break;

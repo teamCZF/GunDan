@@ -7,22 +7,35 @@ package com.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.content.Intent;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.Data.PetData;
 import com.Data.Property;
 import com.Data.UserData;
 import com.base.basepedo.R;
 import com.utils.DbUtils;
+
+import java.util.List;
 
 public class StoreActivity extends Activity implements View.OnClickListener
 {
@@ -34,7 +47,10 @@ public class StoreActivity extends Activity implements View.OnClickListener
     private Button btnf5;
     private UserData user;
     private Property prop;
-
+    int index = 0;
+    final int type[]={1,2,3,4,5};
+    private  final Integer[] imagelist =
+            { R.drawable.food1,R.drawable.food2, R.drawable.food3, R.drawable.food4,R.drawable.food5 };
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -70,12 +86,37 @@ public class StoreActivity extends Activity implements View.OnClickListener
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-        //让弹窗出现在VIEW上方
-        //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(this.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
         Button confirmbtn=(Button) view.findViewById(R.id.confirm_buy);
-        //Button canclebtn=(Button)view.findViewById(R.id.cancel_by);u
-        confirmbtn.setOnClickListener(this);
+        //Button canclebtn=(Button)view.findViewById(R.id.cancel_by);
+        final ImageView image=(ImageView)view.findViewById(R.id.confirm_foodimage);
+        image.setImageResource(imagelist[index]);
+        //confirmbtn.setOnClickListener(this);
+        confirmbtn.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                List<Property> myfood1=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type[index])});
+                if(user.getMoney()>=200)
+                {
+                    if (myfood1.size() == 0) {
+                        prop = new Property(user.getUserID(), index + 1, 1, 1);
+                        DbUtils.insert(prop);
+                        Toast.makeText(StoreActivity.this, "购买成功", Toast.LENGTH_SHORT).show();
+                        user.setMoney(user.getMoney() - 200);
+                        DbUtils.update(user);
+                    } else {
+                        int i = myfood1.get(0).getNumber();
+                        myfood1.get(0).setNumber(i + 1);
+                        DbUtils.update(myfood1.get(0));
+                        Log.d("db", "" + myfood1.get(0).getNumber());
+                    }
+                }
+                else Toast.makeText(StoreActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         //canclebtn.setOnClickListener(this);
     }
     @Override
@@ -84,23 +125,24 @@ public class StoreActivity extends Activity implements View.OnClickListener
         switch (v.getId())
         {
             case R.id.foodbutton1:
+                index=0;
                 confirmshow(v);
                 break;
-            case R.id.confirm_buy:
-                prop=new Property(user.getUserID(),1,1,1);
-                DbUtils.insert(prop);
-                Toast.makeText(StoreActivity.this,"购买成功",Toast.LENGTH_SHORT).show();
-                user.setMoney(user.getMoney()-200);
-                DbUtils.insert(user);
-                break;
             case R.id.foodbutton2:
-
+                index=1;
+                confirmshow(v);
+                break;
+            case R.id.foodbutton3:
+                index=2;
+                confirmshow(v);
                 break;
             case R.id.foodbutton4:
-
+                index=3;
+                confirmshow(v);
                 break;
             case R.id.foodbutton5:
-
+                index=4;
+                confirmshow(v);
                 break;
             default:
                 break;

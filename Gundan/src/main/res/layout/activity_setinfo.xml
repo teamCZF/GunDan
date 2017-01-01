@@ -119,10 +119,10 @@
             <LinearLayout style="@style/bottom_layout">
                 <TextView style="@style/usertext"
                 android:text="体重" />
-                <TextView
+                <EditText
                 style="@style/usertext"
                 android:id="@+id/text_my_weight"
-                android:text="50kg"
+                android:hint="50kg"
                 android:gravity="right"
                 />
                 <ImageView style="@style/img_arrow"/>

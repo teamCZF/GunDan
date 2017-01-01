@@ -14,33 +14,6 @@ import com.base.basepedo.R;
  * Created by chen on 2017/1/1.
  */
 
-//public class collection extends Activity implements ViewSwitcher.ViewFactory
-//{
-    /*private Button btnl;
-    private Button btnr;
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.collection);
-        btnl = (Button)findViewById(R.id.collection_left);
-        btnr = (Button)findViewById(R.id.collection_right);
-        btnl.setOnClickListener(this);
-        btnr.setOnClickListener(this);
-    }
-    public void onClick(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.collection_left:
-
-                break;
-            case R.id.collection_right:
-
-                break;
-        }
-    }*/
-
 
     public class collection extends Activity implements ViewSwitcher.ViewFactory
     {
