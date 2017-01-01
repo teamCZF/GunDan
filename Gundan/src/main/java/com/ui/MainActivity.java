@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Data.PetData;
+import com.Data.Property;
 import com.Data.UserData;
 import com.base.basepedo.R;
 import com.config.Constant;
@@ -33,6 +34,7 @@ import com.service.EggService;
 import com.service.StepService;
 import com.utils.DbUtils;
 
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -62,6 +64,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private static ProgressBar mpProgress;
     private static ProgressBar expProgress;
     //
+    private static PopupWindow popupWindow;
     private static int baseEXP=1000;
     private static int maxPetLevel=3;
     private static int currentLevel;
@@ -69,7 +72,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private static int egghp;
     private static int eggmp;
     private static int exp;
-
+    private static List<Property> food;
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -216,7 +219,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private void popShowUp(View v){
         LayoutInflater layoutInflater=LayoutInflater.from(this);
         View view=layoutInflater.inflate(R.layout.main_food_pop,null);
-        PopupWindow popupWindow=new PopupWindow(view,
+        popupWindow=new PopupWindow(view,
                 WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         int popupWidth = view.getMeasuredWidth();    //  获取测量后的宽度
@@ -231,18 +234,43 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
         ImageView feedButton1=(ImageView) view.findViewById(R.id.eat_food1);
         ImageView feedButton2=(ImageView) view.findViewById(R.id.eat_food2);
-        feedButton1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onFeed();
+        ImageView feedButton3=(ImageView) view.findViewById(R.id.eat_food3);
+        ImageView feedButton4=(ImageView) view.findViewById(R.id.eat_food4);
+        ImageView feedButton5=(ImageView) view.findViewById(R.id.eat_food5);
+        feedButton1.setVisibility(View.VISIBLE);
+        feedButton2.setVisibility(View.VISIBLE);
+        feedButton3.setVisibility(View.VISIBLE);
+        feedButton4.setVisibility(View.VISIBLE);
+        feedButton5.setVisibility(View.VISIBLE);
+        final int type[]={1,2,3,4,5};
+        initfoodpop(type[0],feedButton1);
+        initfoodpop(type[1],feedButton2);
+        initfoodpop(type[2],feedButton3);
+        initfoodpop(type[3],feedButton4);
+        initfoodpop(type[4],feedButton5);
+    }
+    private void initfoodpop(int type,ImageView myfood)
+    {
+        food=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type)});
+        if(food.size()==0)myfood.setVisibility(View.GONE);
+        else {
+            int num=food.get(0).getNumber();
+            if(num==0)myfood.setVisibility(View.GONE);
+            else if (num>0)
+            {
+                myfood.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        onFeed();
+                        popupWindow.dismiss();
+                }
+                });
+                num=num-1;
+                food.get(0).setNumber(num);
+                DbUtils.update(food.get(0));
             }
-        });
-        feedButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onFeed();
-            }
-        });
+            else Toast.makeText(MainActivity.this,"已经吃完了！",Toast.LENGTH_SHORT).show();
+        }
     }
     private void onFeed(){
         int egghp=myEgg.getHealthPoint()+60;
@@ -254,13 +282,14 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         updateProgressBar(egghp,eggmp,nexp);
         Toast.makeText(MainActivity.this,"喂食成功\n+60HP\t+20mp\t+100exp！！",Toast.LENGTH_SHORT).show();
         egg_gif.setImageResource(R.mipmap.egg_eat);
+
         TimerTask task = new TimerTask(){
             public void run(){
                 // 在此处添加执行的代码
                 Message msg=new Message();
                 msg.what=3;
                 delayHandler.sendMessage(msg);
-
+                timer.cancel();
             }
         };
         timer = new Timer();
@@ -268,7 +297,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     }
     private void onTouch(){
         int eggmp=myEgg.getMoodPoint()+10;
-        int nexp=myEgg.getExp()+10;
+        int nexp=myEgg.getExp()+1;
         if(eggmp>100)eggmp=100;
         if(nexp>=expProgress.getMax())upgrade();
         updateProgressBar(egghp,eggmp,nexp);
@@ -280,6 +309,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 Message msg=new Message();
                 msg.what=4;
                 delayHandler.sendMessage(msg);
+                timer.cancel();
 
             }
         };
@@ -307,6 +337,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                     Message msg=new Message();
                     msg.what=5;//孵蛋
                     delayHandler.sendMessage(msg);
+                    timer.cancel();
                 }
             };
             timer = new Timer();
@@ -343,7 +374,6 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     @Override
     protected void onResume() {
         super.onResume();
-        init();
     }
 
     @Override
@@ -410,5 +440,4 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         setEggState(egghp,eggmp,exp);
         setProgress(egghp,eggmp,exp);
     }
-
 }

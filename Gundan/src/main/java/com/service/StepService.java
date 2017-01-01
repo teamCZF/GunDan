@@ -289,7 +289,7 @@ public class StepService extends Service implements SensorEventListener {
         @Override
         public void onTick(long millisUntilFinished) {
         }
-    }
+}
 
     private void save() {
         int tempStep = StepDcretor.CURRENT_SETP;

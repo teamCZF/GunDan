@@ -7,28 +7,18 @@ package com.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.PopupWindow;
-import android.widget.ProgressBar;
 import android.widget.RadioGroup;
-import android.content.Intent;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.Data.PetData;
 import com.Data.Property;
 import com.Data.UserData;
 import com.base.basepedo.R;
@@ -80,7 +70,6 @@ public class StoreActivity extends Activity implements View.OnClickListener
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
         popupWindow.setOutsideTouchable(true);
-
         //让弹窗出现在VIEW上方
         //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(this.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
