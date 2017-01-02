@@ -90,13 +90,13 @@ public class StoreActivity extends Activity implements View.OnClickListener
             public void onClick(View view)
             {
                 List<Property> myfood1=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type[index])});
-                //if(user.getMoney()>=200)
-                //{
+                if(user.getMoney()>=200)
+                {
                     if (myfood1.size() == 0) {
                         prop = new Property(user.getUserID(), 1, index + 1);
                         DbUtils.insert(prop);
                         Toast.makeText(StoreActivity.this, "购买成功", Toast.LENGTH_SHORT).show();
-                        user.setMoney(user.getMoney() - 200);
+                        user.setMoney(user.getMoney()-200);
                         DbUtils.update(user);
                     } else {
                         int i = myfood1.get(0).getNumber();
@@ -105,8 +105,8 @@ public class StoreActivity extends Activity implements View.OnClickListener
                         Log.d("db", "" + myfood1.get(0).getNumber());
                         Toast.makeText(StoreActivity.this, "购买成功", Toast.LENGTH_SHORT).show();
                     }
-                //}
-                //else Toast.makeText(StoreActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(StoreActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
 
             }
         });

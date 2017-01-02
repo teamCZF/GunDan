@@ -99,7 +99,7 @@ public class UserData implements Serializable{
         return money;
     }
     public void setMoney(int money) {
-        this.money+=money;
+        this.money=money;
     }
     public String getSex() {
         return sex;
