@@ -26,7 +26,7 @@ import com.base.basepedo.R;
         // 显示的图片资源
 
         private  final Integer[] imagelist =
-                { R.mipmap.head1, R.mipmap.head2, R.mipmap.head3, R.mipmap.head4 };
+                { R.drawable.tujian1, R.drawable.tujian2, R.drawable.tujian3, R.drawable.tujian4 };
 
         @Override
         public void onCreate(Bundle savedInstanceState)
