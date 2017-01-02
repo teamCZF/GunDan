@@ -203,7 +203,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="R.mipmap.egg_break2"
+        android:src="@mipmap/egg_break1"
         android:visibility="gone"
         android:paddingTop="110sp"
         android:layout_centerHorizontal="true" />
