@@ -38,13 +38,13 @@ public class UserActivity extends Activity implements View.OnClickListener{
         Button SetInfo = (Button) findViewById(R.id.button_myInfo);
         Button historyStep = (Button) findViewById(R.id.button_historyStep);
         Button myHonor = (Button) findViewById(button_myHonor);
-        Button backToMain=(Button)findViewById(R.id.user_back);
+
         Button logout=(Button)findViewById(R.id.logout);
         logout.setOnClickListener(this);
         SetInfo.setOnClickListener(this);
         historyStep.setOnClickListener(this);
         myHonor.setOnClickListener(this);
-        backToMain.setOnClickListener(this);
+
 
     }
     @Override
@@ -59,9 +59,9 @@ public class UserActivity extends Activity implements View.OnClickListener{
                 break;
             case button_myHonor:
                 break;
-            case  R.id.user_back:
+            /*case  R.id.user_back:
                 finish();
-                break;
+                break;*/
             case R.id.logout:
                 sp=getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
                 SharedPreferences.Editor editor=sp.edit();

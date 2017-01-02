@@ -11,11 +11,12 @@
 
     <LinearLayout
         android:id="@+id/loginPanel"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:layout_alignParentTop="true">
 
         <TextView
             android:id="@+id/textView1"
@@ -23,8 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/app_name"
-            android:layout_marginTop="15dp"
-            android:textSize="25dp"/>
+            android:textColor="@drawable/appStyleBlue"
+            android:layout_marginTop="5dp"
+            android:textSize="40dp"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -32,11 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:text="Please login first" />
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:text="Please register first" />
+
 
             <EditText
                 android:id="@+id/register_username"
@@ -50,11 +49,8 @@
                 android:hint="请输入您的用户名"
                 android:ems="10" >
             </EditText>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+
+
 
             <EditText
                 android:id="@+id/register_password"
@@ -69,13 +65,8 @@
                 android:maxLines="1"
                 android:ems="10" >
             </EditText>
-        </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
         <EditText
             android:id="@+id/register_password2"
             android:layout_width="match_parent"
@@ -88,8 +79,6 @@
             android:background="@drawable/qq_edit_login"
             android:hint="确认密码"
             android:ems="10" />
-        </LinearLayout>
-        <requestFocus />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

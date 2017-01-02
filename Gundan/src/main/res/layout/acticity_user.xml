@@ -115,26 +115,14 @@
         <Button
             android:layout_marginLeft="35dp"
             android:layout_marginRight="35dp"
-            android:background="@color/rankGray"
+            android:background="@drawable/green"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="退出"
             android:textSize="20dp"
+            android:textColor="@drawable/white"
             android:id="@+id/logout"/>
     </LinearLayout>
 </LinearLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#00000000">
-        <Button
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:id="@+id/user_back"
-            android:background="@mipmap/main_home"
-            android:gravity="center"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
+
 </RelativeLayout>
