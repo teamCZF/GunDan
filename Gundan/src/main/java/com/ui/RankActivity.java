@@ -51,17 +51,17 @@ public class RankActivity extends Activity implements View.OnClickListener{
         }
     }
     private void initFriends(){
-        Friend f1=new Friend("小欣欣",R.mipmap.head5,"56123");
+        Friend f1=new Friend("圆圆",R.drawable.shark,"56123");
         friendList.add(f1);
-        Friend f2=new Friend("小虹虹",R.mipmap.head4,"40000");
+        Friend f2=new Friend("滚滚",R.drawable.turtle,"40000");
         friendList.add(f2);
-        Friend f3=new Friend("小媛媛",R.mipmap.head3,"40000");
+        Friend f3=new Friend("胖胖",R.drawable.dog,"40000");
         friendList.add(f3);
-        Friend f4=new Friend("奈司",R.mipmap.head1,"39871");
+        Friend f4=new Friend("呆呆",R.drawable.dolphin,"39871");
         friendList.add(f4);
-        Friend f5=new Friend("宇宙第一",R.mipmap.head5,"32000");
+        Friend f5=new Friend("笨笨",R.drawable.squirrel,"32000");
         friendList.add(f5);
-        Friend f6=new Friend("老司机",R.mipmap.head5,"30000");
+        Friend f6=new Friend("木木",R.drawable.frog,"30000");
         friendList.add(f6);
     }
 }
