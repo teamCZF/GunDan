@@ -7,9 +7,6 @@ package com.ui;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.content.DialogInterface;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,17 +16,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
-import android.widget.ProgressBar;
 import android.widget.RadioGroup;
-import android.content.Intent;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.Data.PetData;
 import com.Data.Property;
 import com.Data.UserData;
 import com.base.basepedo.R;
@@ -40,6 +31,7 @@ import java.util.List;
 public class StoreActivity extends Activity implements View.OnClickListener
 {
     RadioGroup group;
+    private static PopupWindow popupWindow;
     private Button btnf1;
     private Button btnf2;
     private Button btnf3;
@@ -81,7 +73,7 @@ public class StoreActivity extends Activity implements View.OnClickListener
     {
         LayoutInflater layoutInflater=LayoutInflater.from(this);
         View view=layoutInflater.inflate(R.layout.food_confirm,null);
-        PopupWindow popupWindow=new PopupWindow(view, WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
+        popupWindow=new PopupWindow(view, WindowManager.LayoutParams.WRAP_CONTENT,WindowManager.LayoutParams.WRAP_CONTENT);
         view.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
         popupWindow.setBackgroundDrawable(new BitmapDrawable());
         popupWindow.setFocusable(true);
@@ -98,10 +90,10 @@ public class StoreActivity extends Activity implements View.OnClickListener
             public void onClick(View view)
             {
                 List<Property> myfood1=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type[index])});
-                if(user.getMoney()>=200)
-                {
+                //if(user.getMoney()>=200)
+                //{
                     if (myfood1.size() == 0) {
-                        prop = new Property(user.getUserID(), index + 1, 1, 1);
+                        prop = new Property(user.getUserID(), 1, index + 1);
                         DbUtils.insert(prop);
                         Toast.makeText(StoreActivity.this, "购买成功", Toast.LENGTH_SHORT).show();
                         user.setMoney(user.getMoney() - 200);
@@ -111,9 +103,10 @@ public class StoreActivity extends Activity implements View.OnClickListener
                         myfood1.get(0).setNumber(i + 1);
                         DbUtils.update(myfood1.get(0));
                         Log.d("db", "" + myfood1.get(0).getNumber());
+                        Toast.makeText(StoreActivity.this, "购买成功", Toast.LENGTH_SHORT).show();
                     }
-                }
-                else Toast.makeText(StoreActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
+                //}
+                //else Toast.makeText(StoreActivity.this, "金币不足", Toast.LENGTH_SHORT).show();
 
             }
         });

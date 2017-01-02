@@ -18,13 +18,13 @@
         android:id="@+id/eat_food2"
         android:layout_width="72dp"
         android:src="@mipmap/food2"
-        android:layout_height="match_parent" />
+        android:layout_height="72dp" />
     <ImageButton
         android:layout_marginBottom="15dp"
         android:background="#00000000"
         android:id="@+id/eat_food3"
         android:layout_width="72dp"
-        android:layout_height="match_parent"
+        android:layout_height="72dp"
         android:src="@mipmap/food3"
         />
     <ImageButton
@@ -32,7 +32,7 @@
         android:background="#00000000"
         android:id="@+id/eat_food4"
         android:layout_width="72dp"
-        android:layout_height="match_parent"
+        android:layout_height="72dp"
         android:src="@mipmap/food4"
         />
     <ImageButton
@@ -40,7 +40,7 @@
         android:background="#00000000"
         android:id="@+id/eat_food5"
         android:layout_width="72dp"
-        android:layout_height="match_parent"
+        android:layout_height="72dp"
         android:src="@mipmap/food5"
         />
 

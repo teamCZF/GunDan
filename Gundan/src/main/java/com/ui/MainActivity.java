@@ -19,7 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -72,7 +72,6 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     private static int egghp;
     private static int eggmp;
     private static int exp;
-    private static List<Property> food;
     ServiceConnection conn = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -99,14 +98,14 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
                 // 更新界面上的步数
                 int currentStep=msg.getData().getInt("step");
                 text_step.setText( currentStep+ "");
+                if(currentStep-lastStep<0)
+                    lastStep=0;
                 if(currentStep-lastStep>200){
                     lastStep=currentStep;
                     user.setMoney(user.getMoney()+20);
                     DbUtils.update(user);
                     petMoney.setText(user.getMoney()+"");
                 }
-                if(currentStep-lastStep<0)
-                    lastStep=0;
                 delayHandler.sendEmptyMessageDelayed(Constant.REQUEST_SERVER, TIME_INTERVAL);
                 break;
             case Constant.REQUEST_SERVER:
@@ -135,6 +134,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         user=(UserData)getIntent().getSerializableExtra("user_data");
@@ -232,11 +232,11 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         //让弹窗出现在VIEW上方
         //popupWindow.showAtLocation(v,Gravity.NO_GRAVITY, (location[0]) - popupWidth / 2, location[1] - popupHeight);
         popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, (location[0] + v.getWidth() / 2) - popupWidth / 2, location[1] - popupHeight);
-        ImageView feedButton1=(ImageView) view.findViewById(R.id.eat_food1);
-        ImageView feedButton2=(ImageView) view.findViewById(R.id.eat_food2);
-        ImageView feedButton3=(ImageView) view.findViewById(R.id.eat_food3);
-        ImageView feedButton4=(ImageView) view.findViewById(R.id.eat_food4);
-        ImageView feedButton5=(ImageView) view.findViewById(R.id.eat_food5);
+        ImageButton feedButton1=(ImageButton) view.findViewById(R.id.eat_food1);
+        ImageButton feedButton2=(ImageButton) view.findViewById(R.id.eat_food2);
+        ImageButton feedButton3=(ImageButton) view.findViewById(R.id.eat_food3);
+        ImageButton feedButton4=(ImageButton) view.findViewById(R.id.eat_food4);
+        ImageButton feedButton5=(ImageButton) view.findViewById(R.id.eat_food5);
         feedButton1.setVisibility(View.VISIBLE);
         feedButton2.setVisibility(View.VISIBLE);
         feedButton3.setVisibility(View.VISIBLE);
@@ -249,14 +249,15 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
         initfoodpop(type[3],feedButton4);
         initfoodpop(type[4],feedButton5);
     }
-    private void initfoodpop(int type,ImageView myfood)
+    private void initfoodpop(int type,ImageButton myfood)
     {
-        food=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type)});
+
+        List<Property> food=DbUtils.getQueryByWhere(Property.class,"ptype",new String[]{String.valueOf(type)});
         if(food.size()==0)myfood.setVisibility(View.GONE);
         else {
             int num=food.get(0).getNumber();
             if(num==0)myfood.setVisibility(View.GONE);
-            else if (num>0)
+            if(num>0)
             {
                 myfood.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -388,6 +389,7 @@ public class MainActivity extends Activity implements Handler.Callback,View.OnCl
             popupWindow.dismiss();
             popupWindow = null;
         }
+        Log.i(TAG, "onPause:"+"popdismiss");
     }
     @Override
     protected void onDestroy() {
